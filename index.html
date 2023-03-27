@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+  <title>Virtual Assistant VA</title>
+  <script defer src="./Script/face-api.min.js"></script>
+  <link rel="stylesheet" href="./CSS/index.css">
+</head>
+
+<body>
+  <div class="contCentral">
+    <div class="contTop">
+      <div class="contOptions">
+
+        <!-- Select radio buttons of input-signal -->
+        <div class="contSelectInput">
+          <fieldset>
+            <label class="labelTitleInput">Select Input</label>
+            <div class="contRadioBtns">
+              <label class="contLabelRbtn"><span class="textSelect">
+                  <svg height="800px" width="800px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve">
+                    <polygon style="fill:#5B5D6E;"
+                      points="317.793,410.483 194.207,410.483 185.379,489.931 326.621,489.931 " />
+                    <polygon style="fill:#464655;"
+                      points="320.736,436.966 317.793,410.483 194.207,410.483 191.264,436.966 " />
+                    <path style="fill:#707487;" d="M494.345,419.31H17.655C7.904,419.31,0,411.406,0,401.655V83.862c0-9.751,7.904-17.655,17.655-17.655
+               h476.69c9.751,0,17.655,7.904,17.655,17.655v317.793C512,411.406,504.096,419.31,494.345,419.31z" />
+                    <path style="fill:#5B5D6E;"
+                      d="M194.909,66.207c4.294,29.934,29.97,52.966,61.091,52.966s56.798-23.031,61.091-52.966H194.909z" />
+                    <path style="fill:#E4EAF8;" d="M476.69,392.828H35.31c-4.875,0-8.828-3.953-8.828-8.828V101.517c0-4.875,3.953-8.828,8.828-8.828
+               H476.69c4.875,0,8.828,3.953,8.828,8.828V384C485.517,388.875,481.565,392.828,476.69,392.828z" />
+                    <path style="fill:#7DF5A5;"
+                      d="M485.517,242.759H291.31V92.69H476.69c4.875,0,8.828,3.953,8.828,8.828V242.759z" />
+                    <path style="fill:#00C3FF;"
+                      d="M485.517,242.759H291.31v150.069H476.69c4.875,0,8.828-3.953,8.828-8.828V242.759z" />
+                    <path style="fill:#FFDC64;" d="M291.31,392.828h-256c-4.875,0-8.828-3.953-8.828-8.828V101.517c0-4.875,3.953-8.828,8.828-8.828h256
+               V392.828z" />
+                    <path style="fill:#707487;" d="M344.276,498.759H167.724c-4.879,0-8.828-3.948-8.828-8.828s3.948-8.828,8.828-8.828h176.552
+               c4.879,0,8.828,3.948,8.828,8.828S349.155,498.759,344.276,498.759z" />
+                    <path style="fill:#D29B6E;" d="M238.345,392.828v-22.585c0-7.599-4.863-14.346-12.072-16.749l-28.821-9.607
+               c-7.209-2.403-12.072-9.15-12.072-16.749v-22.585h-52.966v22.585c0,7.599-4.863,14.346-12.072,16.749l-28.821,9.607
+               c-7.211,2.403-12.074,9.15-12.074,16.749v22.585H238.345z" />
+                    <path style="fill:#959CB5;"
+                      d="M226.273,353.493l-28.821-9.608c-1.731-0.577-3.308-1.431-4.734-2.461
+               c-8.097,9.751-20.158,16.093-33.822,16.093c-13.664,0-25.725-6.342-33.821-16.093c-1.426,1.03-3.002,1.885-4.734,2.461
+               l-28.821,9.608c-7.21,2.403-12.073,9.15-12.073,16.749v22.585h158.897v-22.585C238.345,362.643,233.482,355.896,226.273,353.493z" />
+                    <g>
+                      <ellipse style="fill:#694B4B;" cx="158.897" cy="167.724" rx="35.31" ry="30.897" />
+                      <ellipse style="fill:#694B4B;" cx="158.897" cy="229.517" rx="70.621" ry="66.207" />
+                    </g>
+                    <path style="fill:#5A4146;"
+                      d="M175.96,165.337c-5.474-1.276-11.169-2.027-17.064-2.027c-39.002,0-70.621,29.642-70.621,66.207
+               c0,31.398,23.338,57.632,54.621,64.436c0-11.361,0-28.264,0-53.401C142.897,202.311,161.31,178.381,175.96,165.337z" />
+                    <path style="fill:#F0C087;" d="M203.411,299.949l-28.723,14.361c-9.941,4.97-21.642,4.97-31.583,0l-28.723-14.361
+               c-5.28-2.639-8.89-7.744-9.623-13.601l-5.362-42.893c-0.632-5.056,3.108-9.569,8.192-9.901c16.454-1.077,50.767-5.207,71.922-21.047
+               c3.567-2.671,8.547-2.201,11.596,1.05l24.542,26.174c1.795,1.914,2.645,4.529,2.319,7.133l-4.936,39.484
+               C212.302,292.206,208.691,297.31,203.411,299.949z" />
+                    <path style="fill:#E6AF78;" d="M215.65,239.731l-24.543-26.174c-0.814-0.87-1.783-1.506-2.809-1.971
+               c-0.337-0.152-0.703-0.184-1.054-0.292c-0.713-0.218-1.43-0.413-2.17-0.445c-0.632-0.026-1.26,0.055-1.886,0.168
+               c-0.318,0.057-0.641,0.06-0.953,0.152c-0.953,0.286-1.881,0.708-2.721,1.337c-21.191,15.866-55.588,19.983-72.008,21.053
+               c-5.113,0.333-8.742,4.812-8.106,9.896l5.362,42.892c0.733,5.858,4.343,10.962,9.623,13.602l28.723,14.361
+               c4.289,2.144,8.919,3.178,13.58,3.473l-10.783-21.567c-3.064-6.13-4.66-12.888-4.66-19.741V253.74c0-4.109,2.849-7.597,6.836-8.594
+               c12.089-3.022,24.524-7.443,35.322-13.997l19.371,20.66c2.862,3.053,6.91,6.528,13.806,6.196l1.393-11.142
+               C218.295,244.259,217.444,241.645,215.65,239.731z" />
+                    <path style="fill:#FFDC64;" d="M414.897,353.103h-52.966c-9.751,0-17.655,7.904-17.655,17.655v22.069h88.276v-22.069
+               C432.552,361.007,424.648,353.103,414.897,353.103z" />
+                    <path style="fill:#D29B6E;" d="M388.414,366.345L388.414,366.345c-7.313,0-13.241-5.929-13.241-13.241v-13.241h26.483v13.241
+               C401.655,360.416,395.726,366.345,388.414,366.345z" />
+                    <path style="fill:#F0C087;" d="M389.929,348.69H386.9c-4.682,0-9.173-1.86-12.484-5.171l-7.313-7.313
+               c-3.311-3.311-5.171-7.801-5.171-12.484v-27.998c0-9.751,7.904-17.655,17.655-17.655h17.655c9.751,0,17.655,7.904,17.655,17.655
+               v27.998c0,4.682-1.86,9.173-5.171,12.484l-7.313,7.313C399.102,346.829,394.611,348.69,389.929,348.69z" />
+                    <path style="fill:#694B4B;" d="M397.241,278.069h-17.655c-9.751,0-17.655,7.904-17.655,17.655v8.828c0,0,26.483,0,52.966-8.828l0,0
+               C414.897,285.973,406.993,278.069,397.241,278.069z" />
+                    <path style="fill:#707487;" d="M414.897,203.034h-52.966c-9.751,0-17.655,7.904-17.655,17.655v22.069h88.276V220.69
+               C432.552,210.938,424.648,203.034,414.897,203.034z" />
+                    <path style="fill:#D29B6E;" d="M388.414,216.276L388.414,216.276c-7.313,0-13.241-5.929-13.241-13.241v-13.241h26.483v13.241
+               C401.655,210.347,395.726,216.276,388.414,216.276z" />
+                    <path style="fill:#F0C087;" d="M389.929,198.621H386.9c-4.682,0-9.173-1.86-12.484-5.171l-7.313-7.313
+               c-3.311-3.311-5.171-7.801-5.171-12.484v-27.998c0-9.751,7.904-17.655,17.655-17.655h17.655c9.751,0,17.655,7.904,17.655,17.655
+               v27.998c0,4.682-1.86,9.173-5.171,12.484l-7.313,7.313C399.102,196.76,394.611,198.621,389.929,198.621z" />
+                    <path style="fill:#694B4B;" d="M397.241,128h-17.655c-9.751,0-17.655,7.904-17.655,17.655v8.828c0,0,26.483,0,52.966-8.828l0,0
+               C414.897,135.904,406.993,128,397.241,128z" />
+                    <path style="fill:#FFC850;" d="M256,119.172c13.152,0,25.306-4.148,35.31-11.157V92.69h-85.911
+               C216.547,108.682,235.02,119.172,256,119.172z" />
+                    <path style="fill:#64DCA0;"
+                      d="M291.31,108.015c5.954-4.172,11.132-9.358,15.29-15.326h-15.29V108.015z" />
+                    <circle style="fill:#959CB5;" cx="256" cy="57.379" r="44.138" />
+                    <circle style="fill:#464655;" cx="256" cy="57.379" r="17.655" />
+                  </svg>
+                </span>
+                <input class="selectRadBtn" type="radio" id="camaraInput" name="inputSignal" value="camera">
+                <span class="checkmark"></span>
+              </label>
+
+              <label class="contLabelRbtn"><span class="textSelect">
+                  <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve">
+                    <path style="fill:#2D2D2D;" d="M0,355.272V31.352c0-5.744,4.704-10.448,10.448-10.448h491.104c5.744,0,10.448,4.704,10.448,10.448
+	v323.92" />
+                    <g>
+                      <path style="fill:#E0E0E0;" d="M512,355.272v41.8c0,5.744-4.704,10.448-10.448,10.448H10.448C4.704,407.52,0,402.816,0,397.072
+		v-41.8H512z" />
+                      <rect x="146.28" y="480.648" style="fill:#E0E0E0;" width="219.432" height="10.448" />
+                    </g>
+                    <polygon style="fill:#999999;"
+                      points="329.144,480.664 182.856,480.664 193.304,407.52 318.696,407.52 " />
+                    <rect x="20.896" y="41.8" style="fill:#2D2D2D;" width="470.2" height="292.576" />
+                    <circle style="fill:#FFFFFF;" cx="256.16" cy="188.088" r="67.416" />
+                    <path style="fill:#DB2B42;" d="M256,82.104c-58.624,0-106.144,47.456-106.144,105.984S197.376,294.08,256,294.08
+	s106.144-47.456,106.144-105.984S314.624,82.104,256,82.104z M226.352,229.472v-86.608l81.104,43.304L226.352,229.472z" />
+                  </svg>
+                </span>
+                <input class="selectRadBtn" type="radio" id="videoInput" name="inputSignal" value="video" checked>
+                <span class="checkmark"></span>
+              </label>
+
+              <label class="contLabelRbtn"><span class="textSelect">
+                  <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 511.999 511.999" xml:space="preserve">
+                    <path style="fill:#CCD8E5;" d="M503.665,66.8v316.343c0,17.909-14.509,32.429-32.417,32.429H40.754
+	c-17.909,0-32.418-14.52-32.418-32.429V66.8c0-17.909,14.509-32.429,32.418-32.429h430.493
+	C489.155,34.371,503.665,48.891,503.665,66.8z" />
+                    <path style="fill:#DFEAF4;" d="M503.665,66.8v316.343c0,17.909-14.509,32.429-32.417,32.429H183.344l23.752-57.925L339.655,34.371
+	h131.592C489.155,34.371,503.665,48.891,503.665,66.8z" />
+                    <path style="fill:#B8E9F2;" d="M503.665,66.8v290.847H8.337V66.8c0-17.909,14.509-32.429,32.418-32.429h430.493
+	C489.155,34.371,503.665,48.891,503.665,66.8z" />
+                    <path style="fill:#D4F7FC;"
+                      d="M503.665,66.8v290.847H207.097L339.655,34.371h131.592C489.155,34.371,503.665,48.891,503.665,66.8z" />
+                    <polygon style="fill:#CCD8E5;" points="343.454,480.173 168.547,480.173 181.034,450.955 196.165,415.571 315.836,415.571 
+	330.967,450.955 " />
+                    <polygon style="fill:#BAC6D1;"
+                      points="330.967,450.955 181.034,450.955 196.165,415.571 315.836,415.571 " />
+                    <polyline style="fill:#40728E;"
+                      points="366.155,125.747 402.816,125.747 402.816,314.042 145.842,314.042 145.842,277.38 " />
+                    <rect x="109.184" y="89.087" style="fill:#77B5D8;" width="256.974" height="188.295" />
+                    <g>
+                      <path style="fill:#E8C262;" d="M366.156,210.921L366.156,210.921l-66.457-48.737l-59.547,53.381l-66.724-53.381l0,0l0,0
+		l-64.246,64.246l0,0l0,0v50.948h256.974V210.921L366.156,210.921z M240.152,215.565L240.152,215.565L240.152,215.565
+		L240.152,215.565z" />
+                      <circle style="fill:#E8C262;" cx="264.517" cy="131.025" r="18.886" />
+                    </g>
+                    <path d="M402.817,116.139h-8.888c-4.603,0-8.332,3.731-8.332,8.332c0,4.602,3.729,8.332,8.332,8.332h0.555v171.631H154.174v-19.996
+	h211.981c4.603,0,8.332-3.731,8.332-8.332V87.809c0-4.602-3.729-8.332-8.332-8.332H196.013c-4.603,0-8.332,3.731-8.332,8.332
+	c0,4.602,3.729,8.332,8.332,8.332h161.811v97.065l-53.198-39.012c-3.176-2.331-7.554-2.116-10.49,0.514l-54.287,48.671
+	l-61.216-48.973c-3.317-2.653-8.097-2.387-11.097,0.614l-50.018,50.018V96.141h50.72c4.603,0,8.332-3.731,8.332-8.332
+	c0-4.602-3.729-8.332-8.332-8.332h-59.054c-4.603,0-8.332,3.731-8.332,8.332v188.297c0,4.602,3.729,8.332,8.332,8.332h28.325v28.328
+	c0,4.602,3.729,8.332,8.332,8.332h256.975c4.603,0,8.332-3.731,8.332-8.332V124.471
+	C411.149,119.869,407.419,116.139,402.817,116.139z M300.224,171.63l57.599,42.239v53.903h-37.48l-67.301-53.841L300.224,171.63z
+	 M117.517,228.606l56.53-56.53l119.62,95.696H145.864c-0.007,0-0.014-0.001-0.021-0.001s-0.014,0.001-0.021,0.001h-28.304v-39.167
+	H117.517z" />
+                    <path d="M291.74,129.753c0-15.008-12.209-27.218-27.218-27.218c-15.009,0-27.218,12.21-27.218,27.218s12.209,27.218,27.218,27.218
+	C279.53,156.971,291.74,144.762,291.74,129.753z M253.968,129.753c0-5.819,4.735-10.554,10.554-10.554
+	c5.819,0,10.554,4.735,10.554,10.554s-4.735,10.554-10.554,10.554C258.702,140.307,253.968,135.573,253.968,129.753z" />
+                    <path d="M471.246,24.766H40.754C18.283,24.766,0,43.049,0,65.52v59.227c0,4.602,3.731,8.332,8.332,8.332s8.332-3.731,8.332-8.332
+	V65.52c0-13.284,10.807-24.09,24.09-24.09h430.492c13.284,0,24.09,10.807,24.09,24.09v284.411h-52.21
+	c-4.602,0-8.332,3.731-8.332,8.332s3.731,8.332,8.332,8.332h52.21v15.273c0,13.284-10.807,24.09-24.09,24.09h-155.41H196.164H40.754
+	c-13.284,0-24.09-10.807-24.09-24.09v-15.273h398.688c4.602,0,8.332-3.731,8.332-8.332s-3.731-8.332-8.332-8.332H16.664V152.522
+	c0-4.602-3.731-8.332-8.332-8.332S0,147.92,0,152.522v229.348c0,22.472,18.283,40.754,40.754,40.754H183.54l-20.494,47.945h-40.034
+	c-4.602,0-8.332,3.731-8.332,8.332s3.731,8.332,8.332,8.332h265.975c4.602,0,8.332-3.731,8.332-8.332s-3.731-8.332-8.332-8.332
+	h-40.034l-20.494-47.945h142.786c22.472,0,40.754-18.282,40.754-40.754V65.52C512,43.049,493.717,24.766,471.246,24.766z
+	 M330.83,470.568H181.17l14.238-33.31h121.185L330.83,470.568z" />
+                    <path d="M253.972,376.221c-3.517,0.879-6.116,4.048-6.291,7.67c-0.364,7.534,9.106,11.629,14.33,6.172
+	c2.663-2.782,3.078-7.177,0.913-10.385C261.01,376.772,257.341,375.379,253.972,376.221z" />
+                  </svg>
+                </span>
+                <input class="selectRadBtn" type="radio" id="imageInput" name="inputSignal" value="image">
+                <span class="checkmark"></span>
+              </label>
+            </div>
+          </fieldset>
+        </div>
+
+
+        <div class="contOptionCamera">
+          <label for="visualizatorCamera">Camera:</label>
+          <div class="contCheckbox">
+            <label for="faceRecognition">Face Recognition</label>
+            <input type="checkbox" id="faceRecognition" name="faceRecognition">
+          </div>
+        </div>
+
+        <div class="contOptionVideo">
+          <label for="visualizatorChose">Choose an video</label>
+          <div class="contSelect">
+            <select id="selectVideos" name="selectVideos" class="select"></select>
+            <button id="sortName" data-title="Sort" class="sortBtn" aria-label="sort">
+              <svg width="900px" height="900px" viewBox="0 0 76 76" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" baseProfile="full"
+                enable-background="new 0 0 76.00 76.00" xml:space="preserve">
+                <path fill="#000000" fill-opacity="1" stroke-width="0.2" stroke-linejoin="round"
+                  d="M 62.25,34L 35.75,34L 49,47.25L 62.25,34 Z M 28.9079,36L 28.1281,32.7344L 22.8358,32.7344L 21.9927,36L 16.25,36L 22.25,18L 28.75,18L 34.75,36L 28.9079,36 Z M 25.5433,22.1221L 25.4206,22.1221L 23.7502,28.9384L 27.1385,28.9384L 25.5433,22.1221 Z M 25,54L 33,54L 33,58L 19.006,58L 19.006,54.2515L 27,44L 19,44L 19,40L 33,40L 33,44L 25,54 Z " />
+              </svg>
+            </button>
+            <button id="sortYear" data-title="Sort" class="sortBtn" aria-label="sort">
+              <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve">
+                <path style="fill:#EFEFEF;"
+                  d="M512,166.8v290.64c0,14.32-11.68,26-26,26H26c-14.32,0-26-11.68-26-26V166.8L512,166.8L512,166.8z" />
+                <path style="fill:#010a25;"
+                  d="M0,166.8V85.52C0,71.2,11.68,59.44,26,59.44h459.92c14.32,0,26,11.68,26,26v81.28H0V166.8z" />
+                <g>
+                  <path style="fill:#FFFFFF;" d="M231.76,140.08c-2.72,1.36-8.24,2.72-15.28,2.72c-16.32,0-28.56-10.32-28.56-29.28
+		c0-18.08,12.24-30.32,30.16-30.32c7.2,0,11.76,1.52,13.76,2.56L230,91.84c-2.8-1.36-6.88-2.4-11.68-2.4
+		c-13.52,0-22.56,8.64-22.56,23.84c0,14.16,8.16,23.28,22.24,23.28c4.56,0,9.2-0.96,12.16-2.4L231.76,140.08z" />
+                  <path style="fill:#FFFFFF;" d="M250.88,123.76l-6,18.16h-7.68l19.6-57.76h9.04l19.68,57.76h-8l-6.16-18.16
+		C271.36,123.76,250.88,123.76,250.88,123.76z M269.76,117.92l-5.68-16.64c-1.28-3.76-2.16-7.2-3.04-10.56h-0.16
+		c-0.88,3.44-1.84,6.96-2.88,10.48l-5.68,16.72H269.76z" />
+                  <path style="fill:#FFFFFF;" d="M294,84.16h7.44v51.52h24.72v6.24H294V84.16z" />
+                </g>
+                <g>
+                  <rect x="79.76" y="28.56" style="fill:#002833;" width="22.72" height="79.44" />
+                  <rect x="407.36" y="28.56" style="fill:#002833;" width="22.72" height="79.44" />
+                  <path style="fill:#002833;" d="M334.56,399.12l-36.32-47.92c10.72-12.16,17.28-28,17.28-45.44c0-38-30.88-68.88-68.88-68.88
+		s-68.88,30.88-68.88,68.88s30.88,68.88,68.88,68.88c12.4,0,24-3.36,34-9.04l35.84,47.28L334.56,399.12z M200.4,305.76
+		c0-25.44,20.72-46.16,46.16-46.16s46.16,20.72,46.16,46.16s-20.72,46.16-46.16,46.16S200.4,331.2,200.4,305.76z" />
+                </g>
+              </svg>
+            </button>
+            <button id="buttonSelectVideo" type="submit" class="buttonSelect" data-title="Select">Select</button>
+          </div>
+        </div>
+
+        <div class="contOptionImage">
+          <label for="visualizatorChose">Choose an image</label>
+          <div class="contSelect">
+            <input type="file" id="imageUpload" class="imageUpload">
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <main class="main">
+
+      <div id="contOfImage" class="contImage">
+        <p id="infoLoad"></p>
+        <div id="containerImg" class="containerOfImg">
+          <img id="imageCentral" class="imgCentral" src="./assets/imag/portadas/CoverLetItBe.jpg">
+        </div>
+      </div>
+
+      <div id="contOfVideo" class="contVideo">
+        <div class="playback-animation" id="playback-animation">
+          <svg class="playback-icons">
+            <use class="hidden" href="#play-icon"></use>
+            <use href="#pause"></use>
+          </svg>
+        </div>
+
+        <video id="cameraWeb" class="video" width="760px" height="520px" preload="metadata" controls
+          poster="./assets/imag/portadas/TheBeatlesGetBackTheRooftopPerformance.jpg">
+          Your browser does not support the video tag.
+        </video>
+
+        <!-- New video controls ////////////////////////////////////////////////////////////////////  -->
+        <!-- Progress bar   -->
+        <div class="video-controls hidden" id="video-controls">
+          <div class="video-progress">
+            <progress id="progress-bar" value="0" min="0"></progress>
+            <input type="range" class="seek" id="seek" value="0" min="0" step="1">
+            <div class="seek-tooltip" id="seek-tooltip">00:00</div>
+          </div>
+
+          <!-- Bottons of controls   -->
+          <div class="bottom-controls">
+            <div class="left-controls">
+              <button data-title="Play" id="play">
+                <svg class="playback-icons">
+                  <use href="#play-icon"></use>
+                  <use class="hidden" href="#pause-icon"></use>
+                </svg>
+              </button>
+
+              <div class="volume-controls">
+                <button data-title="Mute" class="volume-button" id="volume-button">
+                  <svg>
+                    <use class="hidden" href="#volume-mute"></use>
+                    <use class="hidden" href="#volume-low"></use>
+                    <use href="#volume-high"></use>
+                  </svg>
+                </button>
+
+                <input type="range" class="volume" id="volume" value="0.6" data-mute="0.4" max="1" min="0" step="0.01">
+              </div>
+
+              <div class="time">
+                <time id="time-elapsed">00:00</time>
+                <span> / </span>
+                <time id="duration">00:00</time>
+              </div>
+
+              <div class="contRwdFwd">
+                <button id="rwd" data-title="rewind" class="wd" data-icon="B" aria-label="rewind">
+                  <svg fill="#000000" width="900px" height="900px" viewBox="0 0 24 24" id="backward"
+                    data-name="Flat Color" xmlns="http://www.w3.org/2000/svg" class="icon flat-color">
+                    <path id="primary"
+                      d="M21.47,5.12a1,1,0,0,0-1,0l-7.45,5V6a1,1,0,0,0-.53-.88,1,1,0,0,0-1,0L4,10.13V4A1,1,0,0,0,2,4V20a1,1,0,0,0,2,0V13.87l7.45,5A1,1,0,0,0,13,18V13.87l7.45,5A1,1,0,0,0,22,18V6A1,1,0,0,0,21.47,5.12Z"
+                      style="fill: rgb(255, 255, 255);">
+
+                    </path>/>
+                  </svg>
+                </button>
+                <button id="fwd" data-title="forward" class="wd" data-icon="F" aria-label="fast forward">
+                  <svg fill="#000000" width="900px" height="900px" viewBox="0 0 24 24" id="forward"
+                    data-name="Flat Color" xmlns="http://www.w3.org/2000/svg" class="icon flat-color">
+                    <path id="primary"
+                      d="M21,3a1,1,0,0,0-1,1v6.13l-7.45-5a1,1,0,0,0-1,0A1,1,0,0,0,11,6v4.13l-7.45-5a1,1,0,0,0-1,0A1,1,0,0,0,2,6V18a1,1,0,0,0,.53.88,1,1,0,0,0,1-.05l7.45-5V18a1,1,0,0,0,.53.88,1,1,0,0,0,1-.05l7.45-5V20a1,1,0,0,0,2,0V4A1,1,0,0,0,21,3Z"
+                      style="fill: rgb(255, 255, 255);">
+                    </path>/>
+                  </svg>
+                </button>
+              </div>
+
+            </div>
+
+            <div class="right-controls">
+              <button data-title="PIP" class="pip-button" id="pip-button">
+                <svg>
+                  <use href="#pip"></use>
+                </svg>
+              </button>
+              <button data-title="Full screen" class="fullscreen-button" id="fullscreen-button">
+                <svg>
+                  <use href="#fullscreen"></use>
+                  <use href="#fullscreen-exit" class="hidden"></use>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+      </div>
+
+      <div class="contInfoVideo">
+        <div id="infoSongCont" class="contInfoSong">
+          <div class="contUpSong">
+            <div class="contTitleAnimation">
+              <div class="contAnimate">
+                <span id="titleSongOfAlbum" class="labelTitle"></span>
+                <span id="vocalsOfSong" class="vocals"></span>
+              </div>
+            </div>
+            <figure class="figImgAlbum">
+              <img id="imageAlbumOfSong" src="./assets/imag/portadas/TheBeatlesGetBackTheRooftopPerformance.jpg" alt=""
+                class="imgAlbum">
+            </figure>
+          </div>
+          <div class="contUpSong" id="contInfoSong" class="contUpSong">
+            <div class="contLeftInfo">
+              <div class="contLabelData">
+                <span class="label">Year:</span>
+                <span id="infoYear" class="data"></span>
+              </div>
+              <div class="contLabelData">
+                <span class="label">Duration:</span>
+                <span id="infoDuration" class="data"></span>
+              </div>
+            </div>
+            <div class="contRightInfo">
+              <div class="contLabelData">
+                <span class="label">Album:</span>
+                <span id="infoAlbum" class="data"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <div class="contDown">
+      <div class="childContDown"></div>
+      <div class="childContDown"></div>
+    </div>
+
+  </div>
+
+  <svg style="display: none">
+    <defs>
+      <symbol id="pause-icon" viewBox="0 0 24 24">
+        <path d="M14.016 5.016h3.984v13.969h-3.984v-13.969zM6 18.984v-13.969h3.984v13.969h-3.984z"></path>
+      </symbol>
+
+      <symbol id="play-icon" viewBox="0 0 24 24">
+        <path d="M8.016 5.016l10.969 6.984-10.969 6.984v-13.969z"></path>
+      </symbol>
+
+      <symbol id="volume-high" viewBox="0 0 24 24">
+        <path
+          d="M14.016 3.234q3.047 0.656 5.016 3.117t1.969 5.648-1.969 5.648-5.016 3.117v-2.063q2.203-0.656 3.586-2.484t1.383-4.219-1.383-4.219-3.586-2.484v-2.063zM16.5 12q0 2.813-2.484 4.031v-8.063q1.031 0.516 1.758 1.688t0.727 2.344zM3 9h3.984l5.016-5.016v16.031l-5.016-5.016h-3.984v-6z">
+        </path>
+      </symbol>
+
+      <symbol id="volume-low" viewBox="0 0 24 24">
+        <path
+          d="M5.016 9h3.984l5.016-5.016v16.031l-5.016-5.016h-3.984v-6zM18.516 12q0 2.766-2.531 4.031v-8.063q1.031 0.516 1.781 1.711t0.75 2.32z">
+        </path>
+      </symbol>
+
+      <symbol id="volume-mute" viewBox="0 0 24 24">
+        <path
+          d="M12 3.984v4.219l-2.109-2.109zM4.266 3l16.734 16.734-1.266 1.266-2.063-2.063q-1.547 1.313-3.656 1.828v-2.063q1.172-0.328 2.25-1.172l-4.266-4.266v6.75l-5.016-5.016h-3.984v-6h4.734l-4.734-4.734zM18.984 12q0-2.391-1.383-4.219t-3.586-2.484v-2.063q3.047 0.656 5.016 3.117t1.969 5.648q0 2.203-1.031 4.172l-1.5-1.547q0.516-1.266 0.516-2.625zM16.5 12q0 0.422-0.047 0.609l-2.438-2.438v-2.203q1.031 0.516 1.758 1.688t0.727 2.344z">
+        </path>
+      </symbol>
+
+      <symbol id="fullscreen" viewBox="0 0 24 24">
+        <path
+          d="M14.016 5.016h4.969v4.969h-1.969v-3h-3v-1.969zM17.016 17.016v-3h1.969v4.969h-4.969v-1.969h3zM5.016 9.984v-4.969h4.969v1.969h-3v3h-1.969zM6.984 14.016v3h3v1.969h-4.969v-4.969h1.969z">
+        </path>
+      </symbol>
+
+      <symbol id="fullscreen-exit" viewBox="0 0 24 24">
+        <path
+          d="M15.984 8.016h3v1.969h-4.969v-4.969h1.969v3zM14.016 18.984v-4.969h4.969v1.969h-3v3h-1.969zM8.016 8.016v-3h1.969v4.969h-4.969v-1.969h3zM5.016 15.984v-1.969h4.969v4.969h-1.969v-3h-3z">
+        </path>
+      </symbol>
+
+      <symbol id="pip" viewBox="0 0 24 24">
+        <path
+          d="M21 19.031v-14.063h-18v14.063h18zM23.016 18.984q0 0.797-0.609 1.406t-1.406 0.609h-18q-0.797 0-1.406-0.609t-0.609-1.406v-14.016q0-0.797 0.609-1.383t1.406-0.586h18q0.797 0 1.406 0.586t0.609 1.383v14.016zM18.984 11.016v6h-7.969v-6h7.969z">
+        </path>
+      </symbol>
+    </defs>
+  </svg>
+
+
+
+  <script type="module" src="./Script/inicialitation.js"></script>
+  <script type="module" src="./Script/functions.js"></script>
+  <script type="module" src="./Script/playVideo.js"></script>
+  <script type="module" src="./Script/faceImage.js"></script>
+  <script type="module" src="./Script/main.js"></script>
+
+</body>
+
+</html>
