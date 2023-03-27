@@ -14,5 +14,3 @@ They are composed of:
 
 
 I will be adding new functions and improvements over time.
-
-Translated with www.DeepL.com/Translator (free version)
