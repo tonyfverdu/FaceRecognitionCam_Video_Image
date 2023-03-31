@@ -1,9 +1,13 @@
 /* eslint-disable no-undef */
 import {
   urlBase, urlModels, videoContainer, radiobtnCamera, radiobtnVideo, radiobtnImage, elemCamera, selectVideos, sortNameBtn, sortYearBtn,
-  elemBtnSelectVideo, infoSongCont, contImage, img
+  elemBtnSelectVideo, infoSongCont, contImage, img, checkBoxFace, selectFaces, infoFaceRecogCont, newCanvas, canvasFace
 } from "./inicialitation.js"
-import { promiseFaceapi, starCam, stopStreamVideoOnly, uploadData, starVideo, sortDataString, sortDataNum, getInfoVideo, deleteCanvas } from "./functions.js"
+import {
+  promiseFaceapi, starCam, stopStreamVideoOnly, uploadData, starVideo, sortDataString, sortDataNum, getInfoVideo, deleteCanvas,
+  uploadSelectFaces, uploadDetections, loadInfoOfFace, resetDataFace, toggleImageFace, controlActiveInfoSong, drawFaceInCanvas,
+  drawFacesRecogCanvas, customBox
+} from "./functions.js"
 import { togglePlay, updatePlayButton } from "./playVideo.js"
 import dataVideos from "../assets/videos/dataVideos.js"
 import { printInfo } from "./faceImage.js"
@@ -16,6 +20,15 @@ let toogleVideo = false
 let toogleImage = false
 
 let inputSelect = 'video'
+let detections
+
+imageAlbumOfSong.style.animation = 'none'
+
+//  Variable "toogleFaceRecognition" (boolean) => Toogle face recognition (true) or not (false).  Event "change" control the "toogle"
+let toogleFaceRecognition = false
+checkBoxFace.addEventListener('change', (ev) => {
+  toogleFaceRecognition = !toogleFaceRecognition
+}, false)
 
 //  A.-  Management of videos   **********************************************************
 //  0.-  Inicial values of videos and images (load videos and create options in the element HTML: "selectVideos")
@@ -73,74 +86,98 @@ function inputSignal(parSignal) {
   if (typeof (parSignal) === "string") {
     inputSelect = parSignal
     if (elemCamera.srcObject) elemCamera.srcObject = null
-    deleteCanvas('#myCanvas')
     elemCamera.pause()
   } else {
-    console.log('Error:  The arguments of the function "" must be a string!!')
+    console.log('Error:  The arguments of the function "inputSignal" must be a string!!')
   }
 }
 
 //  B.-  Select Input ("camera", "video" and "image")  ******************************
 // 1.- Input signal: inputSelect = 'camera'
 radiobtnCamera.addEventListener('click', async () => {
+  deleteCanvas('#myCanvas')
   inputSignal('camera')
+  controlActiveInfoSong(infoSongCont, imageAlbumOfSong, elemCamera, inputSelect)
   videoContainer.style.display = "flex"
   contImage.style.display = "none"
+  toggleImageFace(infoFaceRecogCont, inputSelect)
 
   toogleCamera = !toogleCamera
   if (toogleCamera && inputSelect === 'camera') {
-    elemCamera.setAttribute('poster', './assets/imag/facial-recognition.png')
-    inputCamera()
+    elemCamera.setAttribute('poster', './assets/imag/face-600x900.jpg')
+    inputCamera(toogleFaceRecognition)
   } else {
     const stream = elemCamera.srcObject
     if (stream) stopStreamVideoOnly(stream, elemCamera)
-    if (inputSelect === 'camera') inputCamera()
+    if (inputSelect === 'camera') inputCamera(toogleFaceRecognition)
   }
 }, false)
 
-async function inputCamera() {
-  deleteCanvas('#myCanvas')
-  await promiseFaceapi(starCam(elemCamera), urlModels)
+async function inputCamera(parToogleFR) {
+  if (typeof (parToogleFR) === 'boolean') {
+    if (parToogleFR) {
+      await promiseFaceapi(starCam(elemCamera), urlModels)
 
-  elemCamera.addEventListener('play', () => {
-    deleteCanvas('#myCanvas')
-    const canvas = faceapi.createCanvasFromMedia(elemCamera)
-    canvas.setAttribute('id', 'myCanvas')
-    canvas.style.top = "0%"
-    canvas.style.left = "16.9%"
+      elemCamera.addEventListener('play', () => {
+        deleteCanvas('#myCanvas')
+        const canvas = faceapi.createCanvasFromMedia(elemCamera)
+        canvas.setAttribute('id', 'myCanvas')
+        canvas.style.top = "0%"
+        canvas.style.left = "16.9%"
 
-    const displaySize = { width: 795, height: 597 }
-    faceapi.matchDimensions(canvas, displaySize)
-    videoContainer.append(canvas)
+        const displaySize = { width: 795, height: 597 }
+        faceapi.matchDimensions(canvas, displaySize)
+        videoContainer.append(canvas)
 
-    async function loop() {
-      const detections = await faceapi.detectAllFaces(elemCamera, new faceapi.TinyFaceDetectorOptions())
-        .withFaceLandmarks()
-        .withFaceExpressions()
-        .withFaceDescriptors()
+        async function loop() {
+          // Faces detections with the model "Tiny Face Detector" (it is faster)
+          const detections = await faceapi.detectAllFaces(elemCamera, new faceapi.TinyFaceDetectorOptions())
+            .withFaceLandmarks()
+            .withFaceExpressions()
+            .withAgeAndGender()
+            .withFaceDescriptors()
 
-      const resizedDetections = faceapi.resizeResults(detections, displaySize)
-      const ctx = canvas.getContext('2d')
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
-      ctx.fillStyle ="rgba(242, 242, 242, 0.3)"
-      ctx.fillRect(0, 0, canvas.width, canvas.height)
+          const resizedDetections = faceapi.resizeResults(detections, displaySize)
 
-      faceapi.draw.drawDetections(canvas, resizedDetections)
-      faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
-      faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
-      // faceapi.draw.drawFaceDescriptors(canvas, resizedDetections)
+          const ctx = canvas.getContext('2d')
+          ctx.clearRect(0, 0, canvas.width, canvas.height)
+          ctx.fillStyle = "rgba(242, 242, 242, 0.3)"
+          ctx.fillRect(0, 0, canvas.width, canvas.height)
 
-      window.requestAnimationFrame(loop)
+          // faceapi.draw.drawDetections(canvas, resizedDetections)
+          // faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
+          // faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
+          // faceapi.draw.drawFaceDescriptors(canvas, resizedDetections)
+
+          resizedDetections.forEach((detection, i) => {
+            faceapi.draw.drawDetections(canvas, resizedDetections)
+            faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
+            faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
+            const box = resizedDetections[i].detection.box
+            const drawBox = new faceapi.draw.DrawBox(box, { label: `Face: ${i + 1} ${Math.round(detection.age)} years ${detection.gender}, ${detection.genderProbability.toFixed(2)}%` })
+            drawBox.draw(canvas)
+          })
+
+          window.requestAnimationFrame(loop)
+        }
+        loop()
+      })
+    } else {
+      starCam(elemCamera)
     }
-    loop()
-  })
+  } else {
+    console.error('Error:  The argument of the function "inputCamera" must be a boolean value!!')
+  }
 }
 
 // 2.- Video
 radiobtnVideo.addEventListener('click', () => {
+  deleteCanvas('#myCanvas')
+  imageAlbumOfSong.style.animation = 'none'
   inputSignal('video')
   videoContainer.style.display = "flex"
   contImage.style.display = "none"
+  toggleImageFace(infoFaceRecogCont, inputSelect)
 
   toogleVideo = !toogleVideo
   if (toogleCamera && inputSelect === 'video') {
@@ -151,67 +188,114 @@ radiobtnVideo.addEventListener('click', () => {
 }, false)
 
 
-// 3.- Image
+// 3.- Input signal "Image"
+const elemtNumberOfFace = document.querySelector('#numberOfFace')
+const buttonSelectFaces = document.querySelector('#buttonSelectFaces')
+const selectLandmarks = document.querySelector('#selectLandmarks')
+
+let theImage = null
+let resizedDetections = null
+const displaySize = { width: 600, height: 550 }  //  <== Image dimensions always the same (fixed)
+let putLandMark = false
+
+//  Event "change" in checkbox "selectLandmarks" => Selection or not of face marking (landmarks) drawing
+selectLandmarks.addEventListener('change', ev => {
+  if (ev.target.value === 'off') {
+    putLandMark = true
+    selectLandmarks.value = 'on'
+  } else {
+    putLandMark = false
+    selectLandmarks.value = 'off'
+  }
+})
+
+//  Event "click" in the radio button of select of input signal of image
 radiobtnImage.addEventListener('click', () => {
+  deleteCanvas('#myCanvas')
+  imageAlbumOfSong.style.animation = 'none'
   inputSignal('image')
+  controlActiveInfoSong(infoSongCont, imageAlbumOfSong, elemCamera, inputSelect)
   videoContainer.style.display = "none"
   contImage.style.display = "flex"
+  toggleImageFace(infoFaceRecogCont, inputSelect)
 
   toogleImage = !toogleImage
   if (toogleImage) {
     elemCamera.setAttribute('poster', './assets/imag/portadas/TheBeatlesGetBackTheRooftopPerformance.jpg')
-    promiseFaceapi(recognitionImage, urlModels)
-    recognitionImage()
+    printInfo()
+    promiseFaceapi(recognitionImage, urlModels) //  <=  Loading of the required faceapi face recognition models
   }
 }, false)
 
-//  1.-  Launch all the promises of the faceapi-models in parallel (in the foldel: url_Models),  
-//       if all ok, the function passed by parameter (recognitionImage) is launched.
-promiseFaceapi(recognitionImage, urlModels)
+//  3.1.-  Obtaining and processing of facial recognition information.
+let faceSelect = "Face 1"                 //  <==  Initialization of "selectFaces":  "string" of option from selectFaces:  'Face 1', 'Face 2', ...
+let numberOfFaceSelect = 1                //  <==  Initialization of index of faces selected:  "integer" => "index + 1" of face select
 
-//  2.-  Function "recognitionImage":  recognition of image faces
+//  3.1.1.-  Get info (value of option) of faces selectFaces element HTML => event "change"
+selectFaces.addEventListener('change', function (ev) {
+  const optionFaces = document.querySelectorAll(".optionFaces")
+  faceSelect = optionFaces[ev.target.selectedIndex].value
+}, false)
+
+//  3.1.2.-  In the event of button "buttonSelectFaces", get "index + 1" of face select.  
+//           Callback "loadInfoOfFace", show info from the face selected (return "theFaceSelect")
+buttonSelectFaces.addEventListener('click', (ev) => {
+  resetDataFace()
+  numberOfFaceSelect = parseInt(faceSelect.slice(5), 10)
+  loadInfoOfFace(numberOfFaceSelect, detections)
+  customBox(canvasFace, detections, theImage)
+}, false)
+
+//  3.2.-  Function "recognitionImage":  Event "change" in the element HTML "imageUpload":  <input type="file" id="imageUpload" class="imageUpload">
+//         use faceapi with "image" input ==> recognition of image faces from faceapi
 async function recognitionImage() {
   printInfo()
 
   imageUpload.addEventListener("change", async (e) => {
     infoLoad.textContent = e.target.value
+
+    //  Delete old canvas from image (id="newCanvas")
     const canvas = document.querySelector("#newCanvas")
     if (canvas !== null) document.querySelector("#newCanvas").remove()
-    const theImage = await faceapi.bufferToImage(imageUpload.files[0])
+
+    //  Get image from faceapi with: "bufferToImage(imageUpload.files[0])"
+    theImage = await faceapi.bufferToImage(imageUpload.files[0])
     img.src = theImage.src
 
-    const newCanvas = faceapi.createCanvasFromMedia(theImage)
-    newCanvas.setAttribute('id', 'newCanvas')
-    const displaySize = { width: 600, height: 550 }
-    faceapi.matchDimensions(newCanvas, displaySize)
-    newCanvas.style.top = "44px"
-    newCanvas.style.left = "300px"
-    newCanvas.style.borderRadius = "9px"
-    contImage.append(newCanvas)
+    if (toogleFaceRecognition) {
+      //  1.-  Create and initialize new canvas from "image" and put in front of image (id="newCanvas")
+      const newCanvas = faceapi.createCanvasFromMedia(theImage)
+      newCanvas.setAttribute('id', 'newCanvas')
+      // const displaySize = { width: 600, height: 550 }
+      faceapi.matchDimensions(newCanvas, displaySize)
+      newCanvas.style.top = "44px"
+      newCanvas.style.left = "300px"
+      newCanvas.style.borderRadius = "0px"
+      contImage.append(newCanvas)
 
-    const ctx = newCanvas.getContext("2d")
-    ctx.clearRect(0, 0, newCanvas.width, newCanvas.height)
-    // ctx.fillStyle = "rgba(242, 242, 242, 0.3)"
-    // ctx.fillRect(0, 0, newCanvas.width, newCanvas.height)
+      const ctxNewcanvas = newCanvas.getContext("2d")
+      ctxNewcanvas.clearRect(0, 0, newCanvas.width, newCanvas.height)
 
-    const detections = await faceapi.detectAllFaces(theImage)
-      .withFaceLandmarks()
-      .withFaceExpressions()
-      .withFaceDescriptors()
+      //  2.-  Use the "faceapi" to detect all the faces of the image:  method "detectAllFaces(theImage)" with the default model "SSD Mobilenet v1"
+      detections = await faceapi.detectAllFaces(theImage)
+        .withFaceLandmarks()
+        .withFaceDescriptors()
+        .withFaceExpressions()
+        .withAgeAndGender()
 
-    const resizedDetections = faceapi.resizeResults(detections, displaySize)
-    // const results = resizedDetections.map(d => faceMatcher.findBestMatch(d.descriptor))
+      //  3.-  Draw face in canvas
+      // drawFaceInCanvas(newCanvas, canvasFace)
+      drawFacesRecogCanvas(newCanvas, detections, displaySize, resizedDetections, putLandMark, numberOfFaceSelect)
+      customBox(canvasFace, detections, theImage)  //  !!  ACHTUNG  ************************************************* 
 
-    resizedDetections.forEach((detection, i) => {
-      // faceapi.draw.drawFaceLandmarks(newCanvas, resizedDetections)
-      const box = resizedDetections[i].detection.box
-      const drawBox = new faceapi.draw.DrawBox(box, { label: `Face: ${i + 1}` })
-      drawBox.draw(newCanvas)
-    })
-
-    infoLoad.textContent = `Images faces recognition:  ${detections.length}`
+      infoLoad.textContent = `Images faces recognition:  ${detections.length}`
+      uploadSelectFaces(detections.length, selectFaces)
+    } else {
+      infoLoad.textContent = `Not images faces recognition`
+    }
   })
 }
+
 //  ************************************************************************************
 /*
 import {promiseFaceapi} from "./functions.js"

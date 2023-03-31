@@ -1,9 +1,9 @@
 import {
-  urlBase, elemCamera, playButton, progressBar, seek, duration, timeElapsed, volume, volumeButton, volumeIcons, volumeMute, volumeLow, volumeHigh,
-  videoContainer, videoControls, playbackIcons, seekTooltip,
-  fullscreenButton, fullscreenIcons, rewind, forward, pipButton,
-  infoSongCont
+  urlBase, elemCamera, playButton, progressBar, seek, duration, timeElapsed, volume, volumeButton, volumeIcons, volumeMute, volumeLow, 
+  volumeHigh, videoContainer, videoControls, playbackIcons, seekTooltip, fullscreenButton, fullscreenIcons, rewind, forward, pipButton,
+  infoSongCont, imageAlbumOfSong
 } from "./inicialitation.js"
+import {controlActiveInfoSong} from "./functions.js"
 
 
 //  0.-  Hide native controls (only browser modern !!)
@@ -21,14 +21,11 @@ elemCamera.src = urlVideo
 //  2.-  Function "togglePlay" :  toggles the "playback state" of the element video. If the video playback is
 //                                paused or ended, the video is played, otherwise, the video is "paused"
 export function togglePlay() {
+  controlActiveInfoSong (infoSongCont, imageAlbumOfSong, elemCamera, 'video')
   if (elemCamera.paused || elemCamera.ended) {
     elemCamera.play()
-    infoSongCont.classList.remove('contInfoSong')
-    infoSongCont.classList.add('active')
   } else {
     elemCamera.pause()
-    infoSongCont.classList.remove('active')
-    infoSongCont.classList.add('contInfoSong')
   }
 }
 //  Add eventListener for the buttom toogle play:  playButton => <button data-title="Play (k)" id="play">

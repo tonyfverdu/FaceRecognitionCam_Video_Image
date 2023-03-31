@@ -4,6 +4,8 @@ export const urlBase = "./assets/videos"
 export const urlModels = "./assets/models"
 export let canvasCtx
 
+//  0.-  FACE RECOGNION CONTROL
+export const checkBoxFace = document.querySelector("#checkboxFace")
 
 //  1.-  ELEMENTS HTML - REFERENCES
 //  Elements "radio buttons" for select "camera", "video" or "image"
@@ -143,7 +145,7 @@ export const fullscreenButton = document.getElementById('fullscreen-button')
 //  2.4.5.3.-  Element "buttom":  "PIP":   <button data-title="PIP (p)" class="pip-button" id="pip-button">
 export const pipButton = document.querySelector("#pip-button")
 /*
-<button data-title="Full screen (f)" class="fullscreen-button" id="fullscreen-button">
+<button data-title="Full screen" class="fullscreen-button" id="fullscreen-button">
   <svg>
     <use href="#fullscreen"></use>
     <use href="#fullscreen-exit" class="hidden"></use>
@@ -153,6 +155,9 @@ export const pipButton = document.querySelector("#pip-button")
 
 
 //  3.-  IMAGE   ///////////////////////////////////////////////////////
+export const infoFaceRecogCont = document.querySelector('#infoFaceRecogCont')
+export const newCanvas = document.querySelector('#newCanvas')
+export const canvasFace = document.querySelector("#canvasFace")
 //  3.1.-  container of image:  <div id="contOfImage" class="contImage">
 export const contImage = document.querySelector("#contOfImage")
 export const styleContImage = {
@@ -171,6 +176,7 @@ export const contImgInfo = document.querySelector("#contImg-Info")
 export const infoLoad = document.querySelector("#infoLoad")
 
 export const img = document.querySelector("#imageCentral")
+export const selectFaces = document.querySelector("#selectFaces")
 
 //  Constants
 export const url_Models = "./assets/models"

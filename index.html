@@ -21,7 +21,8 @@
           <fieldset>
             <label class="labelTitleInput">Select Input</label>
             <div class="contRadioBtns">
-              <label class="contLabelRbtn"><span class="textSelect">
+              <label class="contLabelRbtn">
+                <span class="textSelect">
                   <svg height="800px" width="800px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve">
                     <polygon style="fill:#5B5D6E;"
@@ -97,7 +98,8 @@
                 <span class="checkmark"></span>
               </label>
 
-              <label class="contLabelRbtn"><span class="textSelect">
+              <label class="contLabelRbtn">
+                <span class="textSelect">
                   <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve">
                     <path style="fill:#2D2D2D;" d="M0,355.272V31.352c0-5.744,4.704-10.448,10.448-10.448h491.104c5.744,0,10.448,4.704,10.448,10.448
@@ -119,7 +121,8 @@
                 <span class="checkmark"></span>
               </label>
 
-              <label class="contLabelRbtn"><span class="textSelect">
+              <label class="contLabelRbtn">
+                <span class="textSelect">
                   <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 511.999 511.999" xml:space="preserve">
                     <path style="fill:#CCD8E5;" d="M503.665,66.8v316.343c0,17.909-14.509,32.429-32.417,32.429H40.754
@@ -175,13 +178,95 @@
           </fieldset>
         </div>
 
-
         <div class="contOptionCamera">
-          <label for="visualizatorCamera">Camera:</label>
-          <div class="contCheckbox">
-            <label for="faceRecognition">Face Recognition</label>
-            <input type="checkbox" id="faceRecognition" name="faceRecognition">
-          </div>
+          <fieldset>
+            <legend>Tecnology for face recognition</legend>
+            <div class="contTopRecog">
+              <div class="contCheckbox">
+                <label class="contLabelCB">
+                  <span class="textSelect">
+                    <svg height="800px" width="800px" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve">
+                      <style type="text/css">
+                        .st0 {
+                          fill: rgba(220, 21, 21, 0.9);
+                        }
+                      </style>
+                      <g>
+                        <polygon class="st0"
+                          points="132.414,360.484 89.489,360.484 89.489,317.551 64.915,317.551 64.915,385.058 132.414,385.058 	" />
+                        <polygon class="st0"
+                          points="425.391,67.508 449.965,67.508 449.965,0 382.466,0 382.466,24.574 425.391,24.574 	" />
+                        <polygon class="st0"
+                          points="89.489,24.567 132.414,24.574 132.414,0 64.915,0 64.915,67.508 89.489,67.508 	" />
+                        <polygon class="st0" points="425.391,360.484 382.466,360.484 382.466,385.058 449.965,385.058 449.965,317.551 425.391,317.551 	
+    " />
+                        <path class="st0" d="M359.812,435.662c-19.166-7.168-40.989-26.526-40.989-40.965c0-9.559,0-21.502,0-37.885
+    c12.287-13.647,30.718-33.79,36.861-68.603c14.335-5.12,22.526-13.311,32.766-49.148c10.895-38.165-16.383-36.861-16.383-36.861
+    s0-20.478,0-38.221c0-30.038-13.983-118.775-116.055-118.775c-102.056,0-116.039,88.737-116.039,118.775
+    c0,17.742,0,38.221,0,38.221s-27.278-1.304-16.383,36.861c10.224,35.837,18.415,44.028,32.75,49.148
+    c6.144,34.813,24.59,54.956,36.877,68.603c0,16.382,0,28.326,0,37.885c0,14.439-23.566,34.822-40.989,40.965
+    c-28.062,9.895-98.04,16.871-115.319,76.338h438.181C457.749,452.701,387.666,446.086,359.812,435.662z" />
+                      </g>
+                    </svg>
+                  </span>
+                  <span class="checkmark"></span>
+                  <input type="checkbox" id="checkboxFace" value="on">
+                </label>
+
+              </div>
+
+              <div class="contRadioBtns">
+                <label class="contLabelRbtn">
+                  <span class="textSelect">
+                    <svg fill="#000000" width="800px" height="800px" viewBox="0 -4.63 122.88 122.88" version="1.1"
+                      id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                      style="enable-background:new 0 0 122.88 113.63" xml:space="preserve">
+                      <g>
+                        <path class="st0"
+                          d="M41.1,101.17c-20.64-18.34-16.35-28.5-15.85-54.84c0-0.24,0.04-0.47,0.12-0.67l-5.19-1.63 c-0.74-16.4,8.75-26.21,20.52-30.93c4.28-1.72-2.89-11.1,6.97-7.49c13.17,4.82,42.39,11.38,49.31,19.65 c5.62,6.72,5.85,10.36,5.72,19.13c-0.04,2.85-0.48,5.34-1.79,6.27c-0.61,0.43-1.33,0.6-2.18,0.52c0,16.27,2.19,31.67-9.56,44.92 c-6.97,7.86-17.48,12.9-28.06,12.74c-4.17-0.07-6.75-0.66-10.35-2.01C47.21,105.49,44.27,103.98,41.1,101.17L41.1,101.17z M77.25,62.33c2.31,0,4.19,1.87,4.19,4.18c0,2.31-1.87,4.19-4.19,4.19s-4.19-1.88-4.19-4.19C73.06,64.2,74.94,62.33,77.25,62.33 L77.25,62.33L77.25,62.33z M45.61,62.33c2.31,0,4.19,1.87,4.19,4.18c0,2.31-1.87,4.19-4.19,4.19c-2.31,0-4.19-1.88-4.19-4.19 C41.43,64.2,43.3,62.33,45.61,62.33L45.61,62.33L45.61,62.33z M86.77,60.28c0.6,0.8,0.44,1.95-0.37,2.55 c-0.8,0.6-1.95,0.44-2.55-0.37c-1.46-1.95-3.01-2.97-4.65-3.36c-1.67-0.4-3.49-0.14-5.39,0.49c-0.96,0.32-1.99-0.19-2.3-1.15 c-0.31-0.96,0.19-1.99,1.15-2.3c2.49-0.84,4.97-1.16,7.36-0.59C82.47,56.13,84.75,57.59,86.77,60.28L86.77,60.28L86.77,60.28z M42.85,55.55c2.39-0.57,4.87-0.25,7.36,0.59c0.96,0.32,1.47,1.35,1.15,2.3c-0.32,0.96-1.35,1.47-2.3,1.15 c-1.88-0.64-3.71-0.88-5.39-0.49c-1.63,0.39-3.2,1.42-4.65,3.36c-0.6,0.8-1.74,0.97-2.55,0.37c-0.8-0.6-0.97-1.74-0.37-2.55 C38.14,57.59,40.42,56.13,42.85,55.55L42.85,55.55L42.85,55.55z M54.12,90.87c-1.01-0.55-1.37-1.81-0.81-2.81 c0.55-1,1.81-1.37,2.81-0.81c1.9,1.05,3.74,1.62,5.5,1.66c1.71,0.03,3.4-0.44,5.07-1.46c0.97-0.6,2.24-0.3,2.84,0.67 c0.6,0.97,0.3,2.25-0.67,2.84c-2.37,1.46-4.81,2.13-7.31,2.08C59.07,92.98,56.6,92.24,54.12,90.87L54.12,90.87L54.12,90.87z M0,111.17v-18.9h4.91v16.45h12.83v4.91H2.45C1.1,113.63,0,112.53,0,111.17L0,111.17L0,111.17z M105.15,108.72h12.83V92.28h4.91 v18.9c0,1.35-1.09,2.45-2.45,2.45h-15.28V108.72L105.15,108.72L105.15,108.72z M0,20.08V2.45C0,1.1,1.1,0,2.45,0h15.28v4.91H4.91 v15.18H0L0,20.08L0,20.08z M105.15,0h15.28c1.35,0,2.45,1.1,2.45,2.45v17.63h-4.91V4.91h-12.83V0L105.15,0L105.15,0z M53.28,103.38 c2.09,0.83,5.99,1.24,8.26,1.24c4.47,0,8.99-1.01,13.19-2.93c4.22-1.92,8.11-4.73,11.3-8.33c10.71-12.09,8.51-27.51,8.51-42.42 h0.01c-0.04-1.33-0.24-2.54-0.6-3.65c-0.35-1.07-0.85-2-1.52-2.79c-2.56-3-4.98-2.88-8.44-2.7c-0.32,0.01-0.62,0.03-1.07,0.06 c-13.68,0.6-22.64,0.59-29.91-0.04c-6.7-0.6-11.96-1.7-18.1-3.32c-0.58,1.36-1.25,2.69-2.03,3.98c-1,1.65-2.16,3.23-3.49,4.73 c-0.46,24.62-4.75,33.82,14.46,50.87c1.09,0.97,2.24,1.83,3.43,2.57C48.99,101.7,51.51,102.81,53.28,103.38L53.28,103.38z" />
+                      </g>
+                    </svg>
+                  </span>
+                  <span class="titleSW">Faceapi</span>
+                  <input class="selectRadBtn" type="radio" id="faceapi" name="faceRecognition" value="faceapi" checked>
+                  <span class="checkmark"></span>
+                </label>
+
+                <label class="contLabelRbtn">
+                  <span class="textSelect">
+                    <svg width="800px" height="800px" viewBox="-9 0 274 274" version="1.1"
+                      xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                      preserveAspectRatio="xMidYMid">
+                      <g>
+                        <path
+                          d="M145.726081,42.0651946 L145.726081,84.1347419 L218.586952,126.204312 L218.586952,84.1347419 L145.726081,42.0651946 Z M-1.98726454e-07,84.1347419 L-1.98726454e-07,126.204312 L36.4304238,147.234755 L36.4304238,105.169527 L-1.98726454e-07,84.1347419 Z M109.291294,105.169527 L72.8608701,126.204312 L72.8608701,252.404316 L109.291294,273.439101 L109.291294,189.304303 L145.726081,210.339088 L145.726081,168.26954 L109.291294,147.234755 L109.291294,105.169527 Z"
+                          fill="#E55B2D">
+
+                        </path>
+                        <path
+                          d="M145.726081,42.0651946 L36.4304238,105.169527 L36.4304238,147.234755 L109.291294,105.169527 L109.291294,147.234755 L145.726081,126.204312 L145.726081,42.0651946 Z M255.021717,63.0999794 L218.586952,84.1347419 L218.586952,126.204312 L255.021717,105.169527 L255.021717,63.0999794 Z M182.156505,147.234755 L145.726081,168.26954 L145.726081,210.339088 L182.156505,189.304303 L182.156505,147.234755 Z M145.726081,210.339088 L109.291294,189.304303 L109.291294,273.439101 L145.726081,252.404316 L145.726081,210.339088 Z"
+                          fill="#ED8E24">
+
+                        </path>
+                        <path
+                          d="M145.726081,-3.41864288e-05 L-1.98726454e-07,84.1347419 L36.4304238,105.169527 L145.726081,42.0651946 L218.586952,84.1347419 L255.021717,63.0999794 L145.726081,-3.41864288e-05 Z M145.726081,126.204312 L109.291294,147.234755 L145.726081,168.26954 L182.156505,147.234755 L145.726081,126.204312 Z"
+                          fill="#F8BF3C">
+
+                        </path>
+                      </g>
+                    </svg>
+                  </span>
+                  <span class="titleSW">Tensorflow js</span>
+                  <input class="selectRadBtn" type="radio" id="recogtensorjs" name="faceRecognition" value="tensorjs">
+                  <span class="checkmark"></span>
+                </label>
+
+              </div>
+            </div>
+
+
+          </fieldset>
         </div>
 
         <div class="contOptionVideo">
@@ -232,7 +317,6 @@
           </div>
         </div>
       </div>
-
     </div>
 
     <main class="main">
@@ -240,7 +324,7 @@
       <div id="contOfImage" class="contImage">
         <p id="infoLoad"></p>
         <div id="containerImg" class="containerOfImg">
-          <img id="imageCentral" class="imgCentral" src="./assets/imag/portadas/CoverLetItBe.jpg">
+          <img id="imageCentral" class="imgCentral" src="./assets/imag/facerecognitionbeatles.png">
         </div>
       </div>
 
@@ -365,6 +449,79 @@
               <div class="contLabelData">
                 <span class="label">Album:</span>
                 <span id="infoAlbum" class="data"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="infoFaceRecogCont" class="infoFacesRecognitions">
+          <label class="titleFaceRecog">Faces recognition</label>
+          <div class="contSelect">
+            <select id="selectFaces" name="selectFaces" class="select"></select>
+            <button id="buttonSelectFaces" type="submit" class="buttonSelect" data-title="Select">
+              <svg version="1.1" id="Uploaded to svgrepo.com" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" width="800px" height="800px" viewBox="0 0 32 32"
+                xml:space="preserve">
+                <style type="text/css">
+                  .stone_een {
+                    fill: rgba(1, 1, 68, 0.9);
+                  }
+
+                  .st0 {
+                    fill: #0B1719;
+                  }
+                </style>
+                <path class="stone_een" d="M12,24c0,1.103-0.897,2-2,2s-2-0.897-2-2c0-1.103,0.897-2,2-2S12,22.897,12,24z M10,6
+C8.897,6,8,6.897,8,8c0,1.103,0.897,2,2,2s2-0.897,2-2C12,6.897,11.103,6,10,6z M12,16c0,1.103-0.897,2-2,2s-2-0.897-2-2
+c0-1.103,0.897-2,2-2S12,14.897,12,16z M11,16c0-0.552-0.448-1-1-1s-1,0.448-1,1c0,0.552,0.448,1,1,1S11,16.552,11,16z M28,5v22
+c0,1.657-1.343,3-3,3H7c-1.657,0-3-1.343-3-3V5c0-1.657,1.343-3,3-3h18C26.657,2,28,3.343,28,5z M13,24c0-1.657-1.343-3-3-3
+s-3,1.343-3,3s1.343,3,3,3S13,25.657,13,24z M13,16c0-1.657-1.343-3-3-3s-3,1.343-3,3s1.343,3,3,3S13,17.657,13,16z M13,8
+c0-1.657-1.343-3-3-3S7,6.343,7,8s1.343,3,3,3S13,9.657,13,8z M23,24.5c0-0.276-0.224-0.5-0.5-0.5h-7c-0.276,0-0.5,0.224-0.5,0.5
+s0.224,0.5,0.5,0.5h7C22.776,25,23,24.776,23,24.5z M23,22.5c0-0.276-0.224-0.5-0.5-0.5h-7c-0.276,0-0.5,0.224-0.5,0.5
+s0.224,0.5,0.5,0.5h7C22.776,23,23,22.776,23,22.5z M23,16.5c0-0.276-0.224-0.5-0.5-0.5h-7c-0.276,0-0.5,0.224-0.5,0.5
+s0.224,0.5,0.5,0.5h7C22.776,17,23,16.776,23,16.5z M23,14.5c0-0.276-0.224-0.5-0.5-0.5h-7c-0.276,0-0.5,0.224-0.5,0.5
+s0.224,0.5,0.5,0.5h7C22.776,15,23,14.776,23,14.5z M23,8.5C23,8.224,22.776,8,22.5,8h-7C15.224,8,15,8.224,15,8.5S15.224,9,15.5,9
+h7C22.776,9,23,8.776,23,8.5z M23,6.5C23,6.224,22.776,6,22.5,6h-7C15.224,6,15,6.224,15,6.5S15.224,7,15.5,7h7
+C22.776,7,23,6.776,23,6.5z" />
+              </svg>
+            </button>
+          </div>
+          <div class="contInfoOfFace">
+            <div class="contOptionsRecog">
+              <label for="selectLandmarks">Land marks</label>
+              <input type="checkbox" id="selectLandmarks" class="selectLandMarks" value="off">
+            </div>
+            <header class="headTitleFace">
+              <h4 class="titleOfFace">Face<span id="numberOfFace" class="numberOfFace"></span></h4>
+            </header>
+            <div class="contCanvasFace">
+              <canvas id="canvasFace"></canvas>
+            </div>
+            <div class="contInfoOfTheFace">
+              <div class="contInfo">
+                <label class="labelInfo">Expressions</label>
+                <div class="contGruppe">
+                  <div class="contSpans"><span class="titleExpr">Neutral:</span><span id="expNeutral" class="expression"></span></div>
+                  <div class="contSpans"><span class="titleExpr">Happy:</span><span id="expHappy" class="expression"></span></div>
+                  <div class="contSpans"><span class="titleExpr">Sad:</span><span id="expSad" class="expression"></span></div>
+                  <div class="contSpans"><span class="titleExpr">Angry:</span><span id="expAngry" class="expression"></span></div>
+                </div>
+                <div class="contGruppe">
+                  <div class="contSpans"><span class="titleExpr">Susprised:</span><span id="expSusprised" class="expression"></span></div>
+                  <div class="contSpans"><span class="titleExpr">Fearful:</span><span id="expFearful" class="expression"></span></div>
+                  <div class="contSpans"><span class="titleExpr">Disgusted:</span><span id="expDisgusted" class="expression"></span></div>
+                </div>
+              </div>
+              <div class="contAgeGender">
+                <div class="contInfo">
+                  <label class="labelInfo">Age:</label>
+                  <span id="age" class="infoFace"></span>
+                </div>
+                <div class="contInfo">
+                  <label class="labelInfo">Gender:</label>
+                  <span id="gender" class="infoFace"></span>
+                  <span id="genderProbability" class="infoFace"></span>
+                </div>
               </div>
             </div>
           </div>

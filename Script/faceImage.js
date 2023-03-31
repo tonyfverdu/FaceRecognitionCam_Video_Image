@@ -15,9 +15,9 @@ arrayOptionImg.forEach(opt => {
   }
 })
 
-//  2.-  Print info (text) of image loaded and numbers of faces recognized
+//  2.-  Print info (text in element HTML: "infoLoad" ) of image loaded and numbers of faces recognized
 export function printInfo() {
-  infoLoad.textContent = "Loaded face image recognitions!"
+  infoLoad.textContent = "Loaded face recognitions ...!"
 }
 
 //  3.-  Function "inputCamera":  Input signal "video of camera web online"
@@ -35,8 +35,8 @@ export function inputCamera() {
     async function loop() {
       const detections = await faceapi.detectAllFaces(cameraWeb, new faceapi.TinyFaceDetectorOptions())
         .withFaceLandmarks()
+        .withFaceDescriptors()
         .withFaceExpressions()
-      // .withFaceDescriptors()
 
       const resizedDetections = faceapi.resizeResults(detections, displaySize)
       myCanvas.getContext('2d').clearRect(0, 0, myCanvas.width, myCanvas.height)

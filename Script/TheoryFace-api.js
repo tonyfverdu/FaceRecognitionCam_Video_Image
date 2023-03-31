@@ -44,8 +44,7 @@
     Valor de retorno:  Una "Promise" que se resuelve a un objeto MediaStream.
 */
 
-//  face-api.js:  JavaScript API for "face detection and face recognition" in the browser implemented on top of 
-//  the tensorflow.js core API (tensorflow/tfjs-core)
+//  face-api.js:  JavaScript API for "face detection and face recognition" in the browser implemented on top of the tensorflow.js core API (tensorflow/tfjs-core)
 
 /*  face-api.js: una forma de crear un "sistema de reconocimiento facial" en el navegador.
     A JavaScript API for Face Detection, Face Recognition and Face Landmark Detection.

@@ -73,7 +73,7 @@ canvas {
   width: 1574px;
   height: 12vh;
   padding: 0.5%;
-  margin: 2% auto;
+  margin: 1% auto;
   margin-bottom: 0.6%;
   border-radius: 9px;
 }
@@ -89,7 +89,7 @@ canvas {
   height: inherit;
   margin: 0% auto;
   padding: 1%;
-  gap: 5%;
+  gap: 2%;
 }
 .contCentral > .contTop > .contOptions > .contSelectInput {
   position: relative;
@@ -101,7 +101,7 @@ canvas {
   border-radius: 20px;
   background: #e0e0e0;
   box-shadow: inset -12px -12px 24px #aaaaaa, inset 12px 12px 24px #ffffff;
-  width: 24%;
+  width: 20%;
   height: inherit;
   margin: 1% auto;
   padding: 0.2% 0.5%;
@@ -114,8 +114,9 @@ canvas {
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin: 0% auto;
-  padding: 3%;
+  margin: 1% auto;
+  padding: 1%;
+  padding-bottom: 2.5%;
   border: 1px solid rgb(140, 140, 140);
 }
 .contCentral > .contTop > .contOptions > .contSelectInput > fieldset > .labelTitleInput {
@@ -127,7 +128,7 @@ canvas {
   margin: 0% 2%;
   padding: 1%;
   text-shadow: -4px -3px 4px rgba(0, 0, 0, 0.39), 2px 3px 4px rgba(0, 0, 0, 0.3);
-  margin-top: 2% auto;
+  margin-top: 1% auto;
   margin-bottom: 0.5%;
 }
 .contCentral > .contTop > .contOptions > .contSelectInput > fieldset > .contRadioBtns {
@@ -226,48 +227,110 @@ canvas {
   margin: 0% auto;
   margin-top: 4%;
   padding: 0%;
-  background-color: rgba(63, 63, 63, 0.6);
+  background-color: rgb(63, 63, 63);
   border-radius: 50%;
 }
 .contCentral > .contTop > .contOptions > .contOptionCamera {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  border-radius: 20px;
-  background: #e0e0e0;
-  box-shadow: inset -12px -12px 24px #aaaaaa, inset 12px 12px 24px #ffffff;
-  width: 16%;
-  height: inherit;
-  margin: 1% auto;
-  padding: 0.5%;
-  border-radius: 6px;
-}
-.contCentral > .contTop > .contOptions > .contOptionCamera > label {
-  position: relative;
-  text-align: center;
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: rgb(9, 9, 9);
-  margin: 0% 2%;
-  padding: 1%;
-  text-shadow: -4px -3px 4px rgba(0, 0, 0, 0.39), 2px 3px 4px rgba(0, 0, 0, 0.3);
-  margin-top: 6% auto;
-  margin-bottom: 1%;
-}
-.contCentral > .contTop > .contOptions > .contOptionCamera > .contCheckbox {
   position: relative;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin: 2% auto;
+  border-radius: 20px;
+  background: #e0e0e0;
+  box-shadow: inset -12px -12px 24px #aaaaaa, inset 12px 12px 24px #ffffff;
+  width: 24%;
+  height: inherit;
+  margin: 1% auto;
+  padding: 0.2% 0.5%;
+  border-radius: 6px;
+}
+.contCentral > .contTop > .contOptions > .contOptionCamera > fieldset {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  margin: 1% auto;
+  padding: 1%;
+  border: 1px solid rgb(140, 140, 140);
+}
+.contCentral > .contTop > .contOptions > .contOptionCamera > fieldset > legend {
+  position: relative;
+  text-align: justify;
+  font-size: 0.6rem;
+  font-weight: 400;
+  color: rgb(9, 9, 9);
+  margin: 0% auto;
+  margin: 0% 3%;
+  padding: 0% 2%;
+}
+.contCentral > .contTop > .contOptions > .contOptionCamera > fieldset > .contTopRecog {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  margin: 0% auto;
   padding: 0%;
 }
-.contCentral > .contTop > .contOptions > .contOptionCamera > .contCheckbox > label {
+.contCentral > .contTop > .contOptions > .contOptionCamera > fieldset > .contTopRecog > .contCheckbox {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  width: 50%;
+  margin: 1% auto;
+  padding: 0%;
+}
+.contCentral > .contTop > .contOptions > .contOptionCamera > fieldset > .contTopRecog > .contCheckbox > .contLabelCB {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  position: relative;
+  text-align: justify;
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: rgb(1, 1, 68);
+  margin: 0% auto;
+  border-radius: 12px;
+  background-color: rgb(224, 229, 236);
+  box-shadow: rgba(163, 177, 198, 0.5) 4px 4px 6px 0px, rgb(255, 255, 255) -4px -4px 6px 0px;
+  margin: 0% auto;
+  padding: 3% 6%;
+  width: 4.2rem;
+  height: 2.8rem;
+  text-shadow: -4px -3px 4px rgba(0, 0, 0, 0.39), 2px 3px 4px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(167, 166, 166, 0.6);
+  border-radius: 6px;
+  gap: 5%;
+  transition: all ease 0.35s;
+  /* When the radio button is checked, add a blue background */
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  /* Show the indicator (dot/circle) when checked */
+  /* Style the indicator (dot/circle) */
+}
+.contCentral > .contTop > .contOptions > .contOptionCamera > fieldset > .contTopRecog > .contCheckbox > .contLabelCB:hover, .contCentral > .contTop > .contOptions > .contOptionCamera > fieldset > .contTopRecog > .contCheckbox > .contLabelCB:focus {
+  cursor: pointer;
+  border-radius: 12px;
+  background-color: rgb(128, 131, 134);
+  box-shadow: rgba(72, 77, 87, 0.5) 6px 6px 8px 3px, rgb(180, 180, 180) -6px -6px 8px 3px;
+  border: 1px solid rgba(167, 166, 166, 0.6);
+  border-radius: 6px;
+  transform: scale(0.93);
+}
+.contCentral > .contTop > .contOptions > .contOptionCamera > fieldset > .contTopRecog > .contCheckbox > .contLabelCB > .textSelect {
   position: relative;
   text-align: justify;
   font-size: 0.75rem;
@@ -275,29 +338,145 @@ canvas {
   color: rgb(1, 1, 68);
   margin: 0% auto;
   text-shadow: -4px -3px 4px rgba(0, 0, 0, 0.39), 2px 3px 4px rgba(0, 0, 0, 0.3);
-  margin: 2% auto;
-  margin-bottom: 1%;
+  margin: 0% auto;
+  transform: scale(1.2);
 }
-.contCentral > .contTop > .contOptions > .contOptionCamera > .contCheckbox > #faceRecognition {
+.contCentral > .contTop > .contOptions > .contOptionCamera > fieldset > .contTopRecog > .contCheckbox > .contLabelCB > #checkboxFace {
   position: relative;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   width: 100%;
-  background: rgba(203, 203, 203, 0.2);
-  border-radius: 9px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(7.7px);
-  -webkit-backdrop-filter: blur(7.7px);
-  border: 1px solid rgba(203, 203, 203, 0.61);
-  width: 1.1rem;
-  height: 1.1rem;
-  margin: 2% auto;
-  margin-bottom: 1%;
-  padding: 0.3% auto;
-  background-color: rgba(242, 242, 242, 0.6);
-  transition: all 0.35s ease;
+  transform: scale(1.6);
+  margin: 0% auto;
+  padding: 0%;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 1;
+}
+.contCentral > .contTop > .contOptions > .contOptionCamera > fieldset > .contTopRecog > .contCheckbox > .contLabelCB > #checkboxFace:active, .contCentral > .contTop > .contOptions > .contOptionCamera > fieldset > .contTopRecog > .contCheckbox > .contLabelCB > #checkboxFace:checked .textSelect {
+  color: rgb(250, 29, 29);
+}
+.contCentral > .contTop > .contOptions > .contOptionCamera > fieldset > .contTopRecog > .contCheckbox > .contLabelCB > .checkboxFace:checked ~ .checkmark {
+  background-color: rgb(250, 29, 29);
+}
+.contCentral > .contTop > .contOptions > .contOptionCamera > fieldset > .contTopRecog > .contCheckbox > .contLabelCB .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.contCentral > .contTop > .contOptions > .contOptionCamera > fieldset > .contTopRecog > .contCheckbox > .contLabelCB input:checked ~ .checkmark:after {
+  display: block;
+}
+.contCentral > .contTop > .contOptions > .contOptionCamera > fieldset > .contTopRecog > .contCheckbox > .contLabelCB .checkmark:after {
+  top: 7px;
+  left: 7px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgb(246, 240, 240);
+}
+.contCentral > .contTop > .contOptions > .contOptionCamera > fieldset > .contTopRecog > .contRadioBtns {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  width: 60%;
+  justify-content: space-between;
+  margin: 0% auto;
+  padding: 0%;
+}
+.contCentral > .contTop > .contOptions > .contOptionCamera > fieldset > .contTopRecog > .contRadioBtns > .contLabelRbtn {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0% auto;
+  padding: 1%;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* When the radio button is checked, add a blue background */
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  /* Show the indicator (dot/circle) when checked */
+  /* Style the indicator (dot/circle) */
+}
+.contCentral > .contTop > .contOptions > .contOptionCamera > fieldset > .contTopRecog > .contRadioBtns > .contLabelRbtn:hover > .selectRadBtn ~ .checkmark {
+  cursor: pointer;
+  background-color: rgb(162, 3, 3);
+}
+.contCentral > .contTop > .contOptions > .contOptionCamera > fieldset > .contTopRecog > .contRadioBtns > .contLabelRbtn > .selectRadBtn:checked ~ .checkmark {
+  background-color: rgb(250, 29, 29);
+}
+.contCentral > .contTop > .contOptions > .contOptionCamera > fieldset > .contTopRecog > .contRadioBtns > .contLabelRbtn .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.contCentral > .contTop > .contOptions > .contOptionCamera > fieldset > .contTopRecog > .contRadioBtns > .contLabelRbtn input:checked ~ .checkmark:after {
+  display: block;
+}
+.contCentral > .contTop > .contOptions > .contOptionCamera > fieldset > .contTopRecog > .contRadioBtns > .contLabelRbtn .checkmark:after {
+  top: 5px;
+  left: 5px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgb(246, 240, 240);
+}
+.contCentral > .contTop > .contOptions > .contOptionCamera > fieldset > .contTopRecog > .contRadioBtns > .contLabelRbtn > .textSelect {
+  position: relative;
+  text-align: justify;
+  font-size: 0.6rem;
+  font-weight: 400;
+  color: rgb(1, 1, 68);
+  margin: 0% auto;
+  text-shadow: -4px -3px 4px rgba(0, 0, 0, 0.39), 2px 3px 4px rgba(0, 0, 0, 0.3);
+  margin: 0% auto;
+  padding: 5%;
+  transform: scale(0.7);
+  background-color: rgb(253, 253, 253);
+  border: 1px solid rgba(167, 166, 166, 0.6);
+}
+.contCentral > .contTop > .contOptions > .contOptionCamera > fieldset > .contTopRecog > .contRadioBtns > .contLabelRbtn > .titleSW {
+  position: relative;
+  text-align: justify;
+  font-size: 0.5rem;
+  font-weight: 400;
+  color: rgba(2, 2, 101, 0.9);
+  margin: 0% auto;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0% auto;
+  padding: 0%;
+}
+.contCentral > .contTop > .contOptions > .contOptionCamera > fieldset > .contTopRecog > .contRadioBtns > .contLabelRbtn > .checkmark {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: absolute;
+  bottom: -0.8%;
+  left: 40%;
+  width: 0.8rem;
+  height: 0.8rem;
+  margin: 0% auto;
+  margin-top: 2%;
+  padding: 0%;
+  background-color: rgb(63, 63, 63);
+  border-radius: 50%;
 }
 .contCentral > .contTop > .contOptions > .contOptionVideo {
   position: relative;
@@ -915,6 +1094,7 @@ canvas {
   border-radius: 0px 9px 9px 0px;
   border: 2px solid rgba(167, 166, 166, 0.6);
   background: rgba(242, 242, 242, 0.6);
+  gap: 5%;
 }
 .contCentral > .main > .contInfoVideo > .contInfoSong, .contCentral > .main > .contInfoVideo > .active {
   position: relative;
@@ -933,7 +1113,7 @@ canvas {
   height: 20%;
   margin: 0% auto;
   padding: 2%;
-  gap: 5%;
+  gap: 1%;
   border-radius: 0px 9px 0px 0px;
 }
 .contCentral > .main > .contInfoVideo > .contInfoSong > .contUpSong, .contCentral > .main > .contInfoVideo > .active > .contUpSong {
@@ -1197,6 +1377,379 @@ canvas {
   backdrop-filter: blur(7.7px);
   -webkit-backdrop-filter: blur(7.7px);
   border: 2px solid rgba(70, 125, 75, 0.38);
+  border-radius: 0px 9px 0px 0px;
+}
+.contCentral > .main > .contInfoVideo > .infoFacesRecognitions, .contCentral > .main > .contInfoVideo > .activeInfoFacesRecognitions {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  justify-content: flex-start;
+  background: linear-gradient(to top, rgb(228, 15, 15) 3%, rgb(204, 3, 3) 10%, rgb(151, 1, 1) 21%, rgb(63, 1, 1) 39%, rgb(60, 0, 0) 78%, rgb(45, 1, 1));
+  border-radius: 6px;
+  box-shadow: 0px 1px 2px 2px #ff5757, inset 2px 2px 6px 0px #a80202, 0px 1px 2px 2px #fb3c3c;
+  backdrop-filter: blur(2.7px);
+  -webkit-backdrop-filter: blur(2.7px);
+  border: 1px solid rgba(125, 1, 1, 0.68);
+  height: 90%;
+  margin: 0% auto;
+  padding: 0.1% 0.3%;
+  gap: 1%;
+  border-radius: 0px 0px 9px 0px;
+}
+.contCentral > .main > .contInfoVideo > .infoFacesRecognitions > .titleFaceRecog, .contCentral > .main > .contInfoVideo > .activeInfoFacesRecognitions > .titleFaceRecog {
+  position: relative;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: rgb(246, 240, 240);
+  margin: 0% 2%;
+  padding: 1%;
+  text-shadow: -4px -3px 4px rgba(0, 0, 0, 0.39), 2px 3px 4px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  word-spacing: 0.1rem;
+  margin: 2% auto;
+  margin-top: 3%;
+  padding: 0%;
+}
+.contCentral > .main > .contInfoVideo > .infoFacesRecognitions > .contSelect, .contCentral > .main > .contInfoVideo > .activeInfoFacesRecognitions > .contSelect {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  width: "202px";
+  justify-content: space-between;
+  margin: 0.5% auto;
+  padding: 1%;
+  gap: 2%;
+}
+.contCentral > .main > .contInfoVideo > .infoFacesRecognitions > .contSelect > .select, .contCentral > .main > .contInfoVideo > .activeInfoFacesRecognitions > .contSelect > .select {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background: rgba(203, 203, 203, 0.2);
+  border-radius: 9px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7.7px);
+  -webkit-backdrop-filter: blur(7.7px);
+  border: 1px solid rgba(203, 203, 203, 0.61);
+  width: 6.4rem;
+  height: 3.4vh;
+  margin: 0% auto;
+  padding: 0%;
+  background-color: rgb(253, 253, 253);
+  position: relative;
+  text-align: justify;
+  font-size: 0.6rem;
+  font-weight: 400;
+  color: rgb(250, 29, 29);
+  margin: 0% auto;
+  font-weight: 600;
+  border: 2px solid rgba(167, 166, 166, 0.6);
+  border-radius: 4px;
+  transition: all 0.35s ease;
+}
+.contCentral > .main > .contInfoVideo > .infoFacesRecognitions > .contSelect > .select:hover, .contCentral > .main > .contInfoVideo > .activeInfoFacesRecognitions > .contSelect > .select:hover, .contCentral > .main > .contInfoVideo > .infoFacesRecognitions > .contSelect > .select:focus, .contCentral > .main > .contInfoVideo > .activeInfoFacesRecognitions > .contSelect > .select:focus {
+  cursor: pointer;
+  font-weight: 700;
+  border: 2px solid rgba(255, 204, 1, 0.9);
+  background-color: rgb(253, 253, 253);
+}
+.contCentral > .main > .contInfoVideo > .infoFacesRecognitions > .contSelect > .select > .optionFaces, .contCentral > .main > .contInfoVideo > .activeInfoFacesRecognitions > .contSelect > .select > .optionFaces {
+  position: relative;
+  text-align: justify;
+  font-size: 0.6rem;
+  font-weight: 400;
+  color: rgb(19, 19, 29);
+  margin: 0% auto;
+  margin: 1% auto;
+  padding: 1% auto;
+  background-color: rgb(253, 253, 253);
+}
+.contCentral > .main > .contInfoVideo > .infoFacesRecognitions > .contSelect > .buttonSelect, .contCentral > .main > .contInfoVideo > .activeInfoFacesRecognitions > .contSelect > .buttonSelect {
+  display: block;
+  margin: 0% auto;
+  padding: 4% 9%;
+  color: rgba(2, 2, 101, 0.9);
+  text-align: center;
+  text-decoration: none;
+  text-shadow: -0.6rem -0.4rem 0.28rem rgb(101, 101, 102);
+  font-weight: 900;
+  border-radius: 6px;
+  background: linear-gradient(315deg, #f0f0f0, #cacaca);
+  box-shadow: -3px -3px 7px #949494, 2px 2px 4px #ffffff;
+  position: relative;
+  text-align: justify;
+  font-size: 0.6rem;
+  font-weight: bold;
+  color: rgb(11, 10, 73);
+  margin: 1% 2%;
+  padding: 1%;
+  width: 3rem;
+  height: 3.4vh;
+  padding: 0%;
+  margin: 0% auto;
+  transition: all 0.35s ease;
+  border-radius: 4px;
+}
+.contCentral > .main > .contInfoVideo > .infoFacesRecognitions > .contSelect > .buttonSelect:hover, .contCentral > .main > .contInfoVideo > .activeInfoFacesRecognitions > .contSelect > .buttonSelect:hover, .contCentral > .main > .contInfoVideo > .infoFacesRecognitions > .contSelect > .buttonSelect:focus, .contCentral > .main > .contInfoVideo > .activeInfoFacesRecognitions > .contSelect > .buttonSelect:focus {
+  cursor: pointer;
+  background: linear-gradient(315deg, #8f8f8f, #414141);
+  box-shadow: -2px -2px 5px #545454, 1px 1px 4px #bababa;
+  font-weight: bolder;
+  color: rgb(227, 154, 19);
+  transform: scale(0.92);
+}
+.contCentral > .main > .contInfoVideo > .infoFacesRecognitions > .contInfoOfFace, .contCentral > .main > .contInfoVideo > .activeInfoFacesRecognitions > .contInfoOfFace {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  width: 92%;
+  justify-content: flex-start;
+  margin: 0.3% auto;
+  padding: 1%;
+  gap: 0.3%;
+}
+.contCentral > .main > .contInfoVideo > .infoFacesRecognitions > .contInfoOfFace > .contOptionsRecog, .contCentral > .main > .contInfoVideo > .activeInfoFacesRecognitions > .contInfoOfFace > .contOptionsRecog {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border-radius: 20px;
+  background: #e0e0e0;
+  box-shadow: inset -12px -12px 24px #aaaaaa, inset 12px 12px 24px #ffffff;
+  justify-content: flex-start;
+  margin: 0.3% 0%;
+  padding: 1%;
+  border: 1px solid rgba(242, 242, 242, 0.6);
+  border-radius: 4px 4px 0px 0px;
+}
+.contCentral > .main > .contInfoVideo > .infoFacesRecognitions > .contInfoOfFace > .contOptionsRecog > label, .contCentral > .main > .contInfoVideo > .activeInfoFacesRecognitions > .contInfoOfFace > .contOptionsRecog > label {
+  position: relative;
+  text-align: center;
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: rgb(9, 9, 9);
+  margin: 0% 2%;
+  padding: 1%;
+  width: 4rem;
+  text-shadow: -4px -3px 4px rgba(0, 0, 0, 0.39), 2px 3px 4px rgba(0, 0, 0, 0.3);
+}
+.contCentral > .main > .contInfoVideo > .infoFacesRecognitions > .contInfoOfFace > .contOptionsRecog > #selectLandmarks, .contCentral > .main > .contInfoVideo > .activeInfoFacesRecognitions > .contInfoOfFace > .contOptionsRecog > #selectLandmarks {
+  position: relative;
+  display: block;
+  float: left;
+  transform: scale(1.5);
+  margin: 0%;
+  padding: 0% 2%;
+}
+.contCentral > .main > .contInfoVideo > .infoFacesRecognitions > .contInfoOfFace > .headTitleFace, .contCentral > .main > .contInfoVideo > .activeInfoFacesRecognitions > .contInfoOfFace > .headTitleFace {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0% auto;
+  padding: 2% auto;
+  background-color: transparent;
+  border-radius: 20px;
+  background: #e0e0e0;
+  box-shadow: inset -12px -12px 24px #aaaaaa, inset 12px 12px 24px #ffffff;
+  width: "202px";
+  border: 1px solid rgba(167, 166, 166, 0.6);
+  border-radius: 0px;
+}
+.contCentral > .main > .contInfoVideo > .infoFacesRecognitions > .contInfoOfFace > .headTitleFace > .titleOfFace, .contCentral > .main > .contInfoVideo > .activeInfoFacesRecognitions > .contInfoOfFace > .headTitleFace > .titleOfFace {
+  color: rgb(9, 9, 9);
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: bold;
+  margin: 3% auto;
+  text-shadow: -4px -3px 4px rgba(0, 0, 0, 0.39), 2px 3px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: -4px -3px 4px rgba(0, 0, 0, 0.39), 2px 3px 4px rgba(0, 0, 0, 0.3);
+}
+.contCentral > .main > .contInfoVideo > .infoFacesRecognitions > .contInfoOfFace > .headTitleFace > .titleOfFace > .numberOfFace, .contCentral > .main > .contInfoVideo > .activeInfoFacesRecognitions > .contInfoOfFace > .headTitleFace > .titleOfFace > .numberOfFace {
+  color: rgb(250, 29, 29);
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin: 3% auto;
+  text-shadow: -4px -3px 4px rgba(0, 0, 0, 0.39), 2px 3px 4px rgba(0, 0, 0, 0.3);
+  margin-left: 0.3rem;
+}
+.contCentral > .main > .contInfoVideo > .infoFacesRecognitions > .contInfoOfFace > .contCanvasFace, .contCentral > .main > .contInfoVideo > .activeInfoFacesRecognitions > .contInfoOfFace > .contCanvasFace {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border-radius: 20px;
+  background: #e0e0e0;
+  box-shadow: inset -12px -12px 24px #aaaaaa, inset 12px 12px 24px #ffffff;
+  width: "202px";
+  height: "185px";
+  margin: 0% auto;
+  padding: 1%;
+  border-radius: 0px;
+  border: 1px solid rgba(23, 23, 24, 0.85);
+  background: linear-gradient(135deg, #4c4c4c 0%, #595959 11%, #666666 20%, #666666 28%, #474747 36%, #2c2c2c 43%, #2c2c2c 44%, #2c2c2c 47%, #2c2c2c 49%, #000000 52%, #2c2c2c 55%, #000000 60%, #000000 60%, #000000 64%, #111111 72%, #2b2b2b 81%, #1c1c1c 89%, #131313 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#4c4c4c", endColorstr="#131313", GradientType=1);
+  /* IE6-9 fallback on horizontal gradient */
+}
+.contCentral > .main > .contInfoVideo > .infoFacesRecognitions > .contInfoOfFace > .contCanvasFace > #canvasFace, .contCentral > .main > .contInfoVideo > .activeInfoFacesRecognitions > .contInfoOfFace > .contCanvasFace > #canvasFace {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0% auto;
+  padding: 0%;
+  border: 1px solid rgba(242, 242, 242, 0.6);
+  border-radius: 0px;
+  background-color: black;
+}
+.contCentral > .main > .contInfoVideo > .infoFacesRecognitions > .contInfoOfFace > .contInfoOfTheFace, .contCentral > .main > .contInfoVideo > .activeInfoFacesRecognitions > .contInfoOfFace > .contInfoOfTheFace {
+  border-radius: 20px;
+  background: #e0e0e0;
+  box-shadow: inset -12px -12px 24px #aaaaaa, inset 12px 12px 24px #ffffff;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  align-items: flex-start;
+  margin: 0.3% 0%;
+  padding: 1%;
+  border: 1px solid rgba(242, 242, 242, 0.6);
+  border-radius: 0px 0px 4px 4px;
+  gap: 8%;
+}
+.contCentral > .main > .contInfoVideo > .infoFacesRecognitions > .contInfoOfFace > .contInfoOfTheFace > .contInfo, .contCentral > .main > .contInfoVideo > .activeInfoFacesRecognitions > .contInfoOfFace > .contInfoOfTheFace > .contInfo {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  align-items: flex-start;
+  margin: 0% 2%;
+  gap: 5%;
+}
+.contCentral > .main > .contInfoVideo > .infoFacesRecognitions > .contInfoOfFace > .contInfoOfTheFace > .contInfo > .labelInfo, .contCentral > .main > .contInfoVideo > .activeInfoFacesRecognitions > .contInfoOfFace > .contInfoOfTheFace > .contInfo > .labelInfo {
+  position: relative;
+  text-align: center;
+  font-size: 0.55rem;
+  font-weight: 700;
+  color: rgb(9, 9, 9);
+  margin: 0% 2%;
+  padding: 1%;
+  margin-left: 2%;
+}
+.contCentral > .main > .contInfoVideo > .infoFacesRecognitions > .contInfoOfFace > .contInfoOfTheFace > .contInfo > .contGruppe, .contCentral > .main > .contInfoVideo > .activeInfoFacesRecognitions > .contInfoOfFace > .contInfoOfTheFace > .contInfo > .contGruppe {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  justify-content: flex-start;
+  margin: 1.2% 0%;
+  margin-left: 2%;
+}
+.contCentral > .main > .contInfoVideo > .infoFacesRecognitions > .contInfoOfFace > .contInfoOfTheFace > .contInfo > .contGruppe > .contSpans, .contCentral > .main > .contInfoVideo > .activeInfoFacesRecognitions > .contInfoOfFace > .contInfoOfTheFace > .contInfo > .contGruppe > .contSpans {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  justify-content: flex-start;
+  margin: 0% 1%;
+  padding: 0%;
+}
+.contCentral > .main > .contInfoVideo > .infoFacesRecognitions > .contInfoOfFace > .contInfoOfTheFace > .contInfo > .contGruppe > .contSpans > .titleExpr, .contCentral > .main > .contInfoVideo > .activeInfoFacesRecognitions > .contInfoOfFace > .contInfoOfTheFace > .contInfo > .contGruppe > .contSpans > .titleExpr {
+  position: relative;
+  text-align: center;
+  font-size: 0.48rem;
+  font-weight: 700;
+  color: rgb(9, 9, 9);
+  margin: 0% 2%;
+  padding: 1%;
+}
+.contCentral > .main > .contInfoVideo > .infoFacesRecognitions > .contInfoOfFace > .contInfoOfTheFace > .contInfo > .contGruppe > .contSpans > .expression, .contCentral > .main > .contInfoVideo > .activeInfoFacesRecognitions > .contInfoOfFace > .contInfoOfTheFace > .contInfo > .contGruppe > .contSpans > .expression {
+  position: relative;
+  text-align: justify;
+  font-size: 0.46rem;
+  font-weight: bold;
+  color: rgb(250, 29, 29);
+  margin: 1% 2%;
+  padding: 1%;
+  margin-left: 2%;
+}
+.contCentral > .main > .contInfoVideo > .infoFacesRecognitions > .contInfoOfFace > .contInfoOfTheFace > .contAgeGender, .contCentral > .main > .contInfoVideo > .activeInfoFacesRecognitions > .contInfoOfFace > .contInfoOfTheFace > .contAgeGender {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  justify-content: flex-start;
+  margin: 0% 2%;
+  margin-top: 2%;
+  padding: 0% 3%;
+  width: 60%;
+}
+.contCentral > .main > .contInfoVideo > .infoFacesRecognitions > .contInfoOfFace > .contInfoOfTheFace > .contAgeGender > .contInfo, .contCentral > .main > .contInfoVideo > .activeInfoFacesRecognitions > .contInfoOfFace > .contInfoOfTheFace > .contAgeGender > .contInfo {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  justify-content: flex-start;
+}
+.contCentral > .main > .contInfoVideo > .infoFacesRecognitions > .contInfoOfFace > .contInfoOfTheFace > .contAgeGender > .contInfo > .labelInfo, .contCentral > .main > .contInfoVideo > .activeInfoFacesRecognitions > .contInfoOfFace > .contInfoOfTheFace > .contAgeGender > .contInfo > .labelInfo {
+  position: relative;
+  text-align: center;
+  font-size: 0.55rem;
+  font-weight: 700;
+  color: rgb(9, 9, 9);
+  margin: 0% 2%;
+  padding: 1%;
+}
+.contCentral > .main > .contInfoVideo > .infoFacesRecognitions > .contInfoOfFace > .contInfoOfTheFace > .contAgeGender > .contInfo > .infoFace, .contCentral > .main > .contInfoVideo > .activeInfoFacesRecognitions > .contInfoOfFace > .contInfoOfTheFace > .contAgeGender > .contInfo > .infoFace {
+  position: relative;
+  text-align: justify;
+  font-size: 0.48rem;
+  font-weight: bold;
+  color: rgb(250, 29, 29);
+  margin: 1% 2%;
+  padding: 1%;
+}
+.contCentral > .main > .contInfoVideo > .activeInfoFacesRecognitions {
+  background: linear-gradient(to top, rgb(15, 228, 58) 3%, rgb(3, 204, 23) 10%, rgb(1, 151, 31) 21%, rgb(1, 63, 22) 39%, rgb(0, 60, 12) 78%, rgb(1, 45, 10));
+  border-radius: 6px;
+  box-shadow: 0px 1px 2px 2px rgb(86, 205, 2), inset 6px 6px 12px 0px #03fb03, 0px 1px 3px 3px #99f0b6;
+  backdrop-filter: blur(2.7px);
+  -webkit-backdrop-filter: blur(2.7px);
+  border: 1px solid rgba(0, 121, 6, 0.68);
 }
 
 .contDown {
