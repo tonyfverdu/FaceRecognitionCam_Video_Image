@@ -6,6 +6,8 @@ export let canvasCtx
 
 //  0.-  FACE RECOGNION CONTROL
 export const checkBoxFace = document.querySelector("#checkboxFace")
+export const generalLandmarks = document.querySelector("#selectGeneralLandmarks")
+
 
 //  1.-  ELEMENTS HTML - REFERENCES
 //  Elements "radio buttons" for select "camera", "video" or "image"
@@ -155,6 +157,10 @@ export const pipButton = document.querySelector("#pip-button")
 
 
 //  3.-  IMAGE   ///////////////////////////////////////////////////////
+export const selectLandmarks = document.querySelector('#selectLandmarks')
+export const buttonSelectFaces = document.querySelector('#buttonSelectFaces')
+export const elemtNumberOfFace = document.querySelector('#numberOfFace')
+
 export const infoFaceRecogCont = document.querySelector('#infoFaceRecogCont')
 export const newCanvas = document.querySelector('#newCanvas')
 export const canvasFace = document.querySelector("#canvasFace")

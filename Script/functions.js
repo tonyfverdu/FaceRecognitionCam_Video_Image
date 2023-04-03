@@ -61,11 +61,11 @@ export function sortDataNum(parArrayData, parDirection) {
 
 //  1.-  Play Video:  startVideo => element HTML:  <video id="cameraWeb" class="video" width="760px" height="520px" preload="metadata" controls
 //                                                  poster="./assets/imag/portadas/TheBeatlesGetBackTheRooftopPerformance.jpg">
-export function starVideo(parVideo, parCamera) {
-  if (typeof (parVideo) === "string" && parCamera instanceof HTMLElement) {
-    parCamera.src = parVideo
+export function starVideo(parUrlVideo, parCamera) {
+  if (typeof (parUrlVideo) === "string" && parCamera instanceof HTMLElement) {
+    parCamera.src = parUrlVideo
   } else {
-    console.error('Error: The arguments of the function "starVideo(parVideo, parCamera)" must be a string and instanceof HTMLElement!!')
+    console.error('Error: The arguments of the function "starVideo(parUrlVideo, parCamera)" must be a string and instanceof HTMLElement!!')
   }
 }
 
@@ -101,12 +101,12 @@ export async function promiseFaceapi(parFunctionVideo, parURL_Models) {
     faceapi.nets.ageGenderNet.loadFromUri(parURL_Models),
   ])
     .then(parFunctionVideo)
-    .catch(err => console.error(`Error:  There is a error in the function "promiseFaceapi":  ${err}`))
+    .catch(err => console.error(`Error:  There is a error in the function "promiseFaceapi".  ${err}`))
 }
 
 //  4.-  Creation of canvas from the method "createCanvasFromMedia" of faceapi
-export async function createCanvas(parElemVideo, parIdCanvas) {
-  const myCanvas = await faceapi.createCanvasFromMedia(parElemVideo)
+export async function createCanvas(parElem, parIdCanvas) {
+  const myCanvas = await faceapi.createCanvasFromMedia(parElem)
   myCanvas.setAttribute("id", parIdCanvas)
   // myCanvas.classList.add(parClassCanvas)
   document.body.append(myCanvas)          //  <== Place the created canvas in the body of the document (See better in contVideo)
@@ -115,9 +115,7 @@ export async function createCanvas(parElemVideo, parIdCanvas) {
 //  5.-  Delete canvas of face recognition
 export function deleteCanvas(parIdCanvas) {
   const TheCanvas = document.querySelector(parIdCanvas)
-  if (TheCanvas !== null) {
-    TheCanvas.remove()
-  }
+  if (TheCanvas !== null) TheCanvas.remove()
 }
 
 //  6.-  Function "getter" of info of video select.
@@ -193,8 +191,6 @@ export function loadInfoOfFace(parNumFace, parDetections) {
   const faceSelect = faceDetection[parNumFace - 1]
 
   const dimBoxFace = faceSelect.dimensionsBox
-  // console.log('dimBoxFace:  ', dimBoxFace)
-  // console.table('x:  ', dimBoxFace._x, 'y:  ', dimBoxFace._y)
 
   const elemtNumberOfFace = document.querySelector('#numberOfFace')
   const elemtExpNeutral = document.querySelector('#expNeutral')
@@ -248,8 +244,11 @@ export function loadInfoOfFace(parNumFace, parDetections) {
   return theFaceSelect
 }
 
-//  10.-  Initializatrion of the value of all elements HTML of information faces.
+//  10.-  Initialization of the value of all elements HTML of information faces.
 export function resetDataFace() {
+  const toDelete = document.querySelector('#newCanvas')
+  if (toDelete) toDelete.remove()
+
   const elemtNumberOfFace = document.querySelector('#numberOfFace')
   const elemtExpNeutral = document.querySelector('#expNeutral')
   const elemtExpHappy = document.querySelector('#expHappy')
@@ -263,7 +262,7 @@ export function resetDataFace() {
   const elemtGender = document.querySelector('#gender')
   const elemtGenderProbability = document.querySelector('#genderProbability')
 
-  elemtNumberOfFace.textContent = 1
+  elemtNumberOfFace.textContent = ''
   elemtExpNeutral.textContent = ""
   elemtExpHappy.textContent = ""
   elemtExpSad.textContent = ""
@@ -302,30 +301,58 @@ export function toggleImageFace(parInfoFaceRecogCont, parSignalType) {
 
 //  13.-  Function of control active or not of div infoSongCont
 export function controlActiveInfoSong(parInfoSongCont, parImageAlbumOfSong, parElemtCamera, parInputSignal) {
-  if (parInputSignal !== 'video') {
-    parInfoSongCont.classList.remove('active')
-    parInfoSongCont.classList.add('contInfoSong')
-    parImageAlbumOfSong.style.animation = 'none'
-  } else {
-    if (parElemtCamera.paused || parElemtCamera.ended) {
-      parInfoSongCont.classList.remove('contInfoSong')
-      parInfoSongCont.classList.add('active')
-      parImageAlbumOfSong.style.animation = 'rotateRecord 30s linear infinite'
-    } else {
+  switch (parInputSignal) {
+    case "camera":
       parInfoSongCont.classList.remove('active')
       parInfoSongCont.classList.add('contInfoSong')
       parImageAlbumOfSong.style.animation = 'none'
-    }
+      break;
+
+    case "video":
+      if (parElemtCamera.paused || parElemtCamera.ended) {
+        parInfoSongCont.classList.remove('contInfoSong')
+        parInfoSongCont.classList.add('active')
+        parImageAlbumOfSong.style.animation = 'rotateRecord 30s linear infinite;'
+      } else {
+        parInfoSongCont.classList.remove('active')
+        parInfoSongCont.classList.add('contInfoSong')
+        parImageAlbumOfSong.style.animation = 'none'
+      }
+      break;
+
+    case "image":
+      parInfoSongCont.classList.remove('active')
+      parInfoSongCont.classList.add('contInfoSong')
+      // parImageAlbumOfSong.style.animation = 'none'
+
+      break;
+
+    default:
+      break;
   }
+
+  // if (parInputSignal !== 'video') {
+
+
+
+  //   if(parInputSignal !== 'camera'){
+  //     parInfoSongCont.classList.remove('contInfoSong')
+  //     parInfoSongCont.classList.add('active')
+  //     parImageAlbumOfSong.style.animation = 'none'
+  //   }
+
+  //   if(parInputSignal !== 'camera'){
+
+  //     parImageAlbumOfSong.style.animation = 'none'
+  //   }
+
 }
 
 //  14.-  Desastualizado ....
 export function drawFaceInCanvas(parCanvasNew, parCanvasFace, parNumberOfFaceSelect, parDetections) {
   //  1.-  Get "canvas reference" for face information:  canvasFace => dimensions: "newCanvas" * relationOfCanvas
-  // const contenedordecanvas = document.querySelector('.contCanvasFace')
-  const relationOfCanvas = 0.9
+  const relationOfCanvas = 1
   const dimCanvasFace = { width: Math.round(parCanvasNew.width), height: Math.round(parCanvasNew.height) }
-  // console.log('Dimensiones del canvas de informacion:  ', dimCanvasFace)  //  1/3 => 200px, 183px
 
   const ctxCanvasFace = parCanvasFace.getContext('2d')
   ctxCanvasFace.clearRect(0, 0, dimCanvasFace.width, dimCanvasFace.height)
@@ -360,56 +387,114 @@ export function drawFaceInCanvas(parCanvasNew, parCanvasFace, parNumberOfFaceSel
 
 //  15.-  Function "drawFacesRecogCanvas":  draw on the main canvas, "parCanvas", the set of recognized faces ("parDetections") of 
 //                                          the input image
-export function drawFacesRecogCanvas(parCanvas, parDetections, parDisplaySize, parResizedDetections, parPutLandMark, parNumberOfFaceSelect) {
-  const ctx = parCanvas.getContext('2d')
-  ctx.clearRect(0, 0, parCanvas.width, parCanvas.height)
+export function drawFacesRecogCanvas(parCanvasA, parCanvasB, parDetections, parDisplaySize, parResizedDetections, parPutLandMark, parNumberOfFaceSelect, parImage) {
+  if (Array.isArray(parDetections)) {
+    const ctxCanvasA = parCanvasA.getContext('2d')
+    ctxCanvasA.clearRect(0, 0, parCanvasA.width, parCanvasA.height)
+    ctxCanvasA.fillStyle = 'red';
+    ctxCanvasA.fillRect(0, 0, parCanvasA.width, parCanvasA.height)
 
-  parResizedDetections = faceapi.resizeResults(parDetections, parDisplaySize)
+    parResizedDetections = faceapi.resizeResults(parDetections, parDisplaySize)
 
-  parResizedDetections.forEach((detection, i) => {
-    if (parPutLandMark) faceapi.draw.drawFaceLandmarks(newCanvas, parResizedDetections)
-    faceapi.draw.drawFaceExpressions(parCanvas, parResizedDetections)
+    parResizedDetections.forEach((detection, i) => {
+      if (parPutLandMark) faceapi.draw.drawFaceLandmarks(parCanvasA, parResizedDetections)
+      faceapi.draw.drawFaceExpressions(parCanvasA, parResizedDetections)
 
-    const box = parResizedDetections[i].detection.box
-    const drawBox = new faceapi.draw.DrawBox(box, { label: `Face ${i + 1}` })
-    drawBox.draw(parCanvas)
+      const box = parResizedDetections[i].detection._box
+      const drawBox = new faceapi.draw.DrawBox(box, { label: `Face ${i + 1}` })
+      drawBox.draw(parCanvasA)
 
-    if (i === (parNumberOfFaceSelect - 1)) {
-      const box2 = parResizedDetections[i].detection.box
-      const drawBox = new faceapi.draw.DrawBox(box2, { label: `Face: ${i + 1} ${Math.round(detection.age)} years ${detection.gender}, (${detection.genderProbability.toFixed(4) * 100}%)` })
-      drawBox.draw(parCanvas)
+      if (i === (parNumberOfFaceSelect - 1)) {
+        const box2 = parResizedDetections[i].detection.box
+        const drawBox = new faceapi.draw.DrawBox(box2, { label: `Face: ${i + 1} ${Math.round(detection.age)} years ${detection.gender}, (${detection.genderProbability.toFixed(4) * 100}%)` })
+        drawBox.draw(parCanvasA)
 
-      ctx.lineWidth = 4;
-      ctx.strokeStyle = 'rgb(250, 29, 29)';
-      ctx.strokeRect(detection.detection._box._x, detection.detection._box._y, detection.detection._box._width, detection.detection._box._height);
+        ctxCanvasA.lineWidth = 2;
+        ctxCanvasA.strokeStyle = 'rgb(250, 29, 29)';
+        ctxCanvasA.strokeRect(detection.detection._box._x, detection.detection._box._y, detection.detection._box._width, detection.detection._box._height);
 
-      ctx.strokeStyle = "rgb(252, 249, 112)"
-      ctx.lineWidth = 5;
+        ctxCanvasA.strokeStyle = "rgb(252, 249, 112)"
+        ctxCanvasA.lineWidth = 3;
 
-      ctx.beginPath()
-      ctx.arc(detection.detection._box._x, detection.detection._box._y, 5, 0, 2 * Math.PI)
-      ctx.stroke()
-      ctx.closePath()
+        ctxCanvasA.beginPath()
+        ctxCanvasA.arc(detection.detection._box._x, detection.detection._box._y, 4, 0, 2 * Math.PI)
+        ctxCanvasA.stroke()
+        ctxCanvasA.closePath()
 
-      ctx.beginPath()
-      ctx.arc(detection.detection._box._x + detection.detection._box._width, detection.detection._box._y, 4, 0, 2 * Math.PI)
-      ctx.stroke()
-      ctx.closePath()
+        ctxCanvasA.beginPath()
+        ctxCanvasA.arc(detection.detection._box._x + detection.detection._box._width, detection.detection._box._y, 3, 0, 2 * Math.PI)
+        ctxCanvasA.stroke()
+        ctxCanvasA.closePath()
 
-      ctx.beginPath()
-      ctx.arc(detection.detection._box._x + detection.detection._box._width, detection.detection._box._y + detection.detection._box._height, 4, 0, 2 * Math.PI)
-      ctx.stroke()
-      ctx.closePath()
+        ctxCanvasA.beginPath()
+        ctxCanvasA.arc(detection.detection._box._x + detection.detection._box._width, detection.detection._box._y + detection.detection._box._height, 3, 0, 2 * Math.PI)
+        ctxCanvasA.stroke()
+        ctxCanvasA.closePath()
 
-      ctx.beginPath()
-      ctx.arc(detection.detection._box._x, detection.detection._box._y + detection.detection._box._height, 4, 0, 2 * Math.PI)
-      ctx.stroke()
-      ctx.closePath()
+        ctxCanvasA.beginPath()
+        ctxCanvasA.arc(detection.detection._box._x, detection.detection._box._y + detection.detection._box._height, 3, 0, 2 * Math.PI)
+        ctxCanvasA.stroke()
+        ctxCanvasA.closePath()
+      }
+    })
+    ////////////////////////////////////////////////////////
+    const box = {
+      // Set boundaries to their inverse infinity, so any number is greater/smaller
+      bottom: -Infinity,
+      left: Infinity,
+      right: -Infinity,
+      top: Infinity,
+
+      // Methods "getters":  given the boundaries, we can compute width and height
+      get height() {
+        return this.bottom - this.top;
+      },
+
+      get width() {
+        return this.right - this.left;
+      }
     }
-  })
+
+    // Update the box boundaries
+    // for (const face of parDetections) {
+    //   box.bottom = Math.max(box.bottom, face.detection.box.bottom)
+    //   box.left = Math.min(box.left, face.detection.box.left)
+    //   box.right = Math.max(box.right, face.detection.box.right)
+    //   box.top = Math.min(box.top, face.detection.box.top)
+    // }
+    if (parDetections[parNumberOfFaceSelect - 1]) {
+      box.bottom = Math.max(box.bottom, parDetections[parNumberOfFaceSelect - 1].detection._box.bottom)
+      box.left = Math.min(box.left, parDetections[parNumberOfFaceSelect - 1].detection._box.left)
+      box.right = Math.max(box.right, parDetections[parNumberOfFaceSelect - 1].detection._box.right)
+      box.top = Math.min(box.top, parDetections[parNumberOfFaceSelect - 1].detection._box.top)
+    }
+
+    // Draw the result (image) in the canvas "parCanvas"
+    const ctx = parCanvasB.getContext("2d")
+
+    parCanvasB.width = box.width
+    parCanvasB.height = box.height
+
+    ctx.clearRect(0, 0, parCanvasB.width, parCanvasB.height)
+
+    //  1.-  Load the data of all faces (array "detections") in the variable of array of objects: "infoTheFaceSelect"
+    const infoTheFaceSelect = loadInfoOfFace(parNumberOfFaceSelect, parDetections)
+    const relationOfCanvas = 1
+    const resizedCanvasFace = {
+      x0: parseInt(infoTheFaceSelect.dimensions._x * relationOfCanvas, 10),
+      y0: parseInt(infoTheFaceSelect.dimensions._y * relationOfCanvas, 10),
+      width: parseInt(infoTheFaceSelect.dimensions._width * relationOfCanvas, 10),
+      height: parseInt(infoTheFaceSelect.dimensions._height * relationOfCanvas, 10)
+    }
+
+    ctx.drawImage(parImage, box.left, box.top, box.width, box.height, 0, 0, parCanvasB.width, parCanvasB.height)
+  } else {
+    console.error('Error:  The argument "parDetections" of the function "customBox" must be an array of detections!!')
+  }
 }
 
-//  16 .- Function "customBox": Calculation of the custom square (box) containing the face detected in the input image.
+
+//  16 .- Function "customBox": Calculation of the custom square (box) containing all the faces detected in the input image.
 export function customBox(parCanvas, parDetections, parImage) {
   if (Array.isArray(parDetections)) {
     const box = {
@@ -440,8 +525,84 @@ export function customBox(parCanvas, parDetections, parImage) {
     // Draw the result (image) in the canvas "parCanvas"
     const ctx = parCanvas.getContext("2d")
 
-    parCanvas.height = box.height
+    parCanvas.width = 200
+    parCanvas.height = 200
+
+    // parCanvas.height = box.height
+    // parCanvas.width = box.width
+
+    ctx.drawImage(parImage, box.left, box.top, box.width, box.height, 0, 0, parCanvas.width, parCanvas.height)
+
+    // if (putLandMark) {
+    //   ctx.fillStyle = 'rgb(250, 29, 29)'
+    //   ctx.lineWidth = 2
+
+    //   ctx.save()
+    //   ctx.beginPath()
+    //   ctx.translate(60, 10);
+    //   ctx.arc(15, 15, 5, 0, 2 * Math.PI)
+    //   ctx.fill()
+    //   ctx.closePath()
+    //   ctx.restore()
+    // }
+  } else {
+    console.error('Error:  The argument "parDetections" of the function "customBox" must be an array of detections!!')
+  }
+}
+
+//  17 .- Function "customBoxSingleFace": Calculation of the custom square (box) containing the face detected in the input image.
+export function customBoxSingleFace(parCanvas, parNumberOfFaceSelect, parDetections, parImage) {
+  if (Array.isArray(parDetections)) {
+    const box = {
+      // Set boundaries to their inverse infinity, so any number is greater/smaller
+      bottom: -Infinity,
+      left: Infinity,
+      right: -Infinity,
+      top: Infinity,
+
+      // Methods "getters":  given the boundaries, we can compute width and height
+      get height() {
+        return this.bottom - this.top;
+      },
+
+      get width() {
+        return this.right - this.left;
+      }
+    }
+
+    // Update the box boundaries
+    // for (const face of parDetections) {
+    //   box.bottom = Math.max(box.bottom, face.detection.box.bottom)
+    //   box.left = Math.min(box.left, face.detection.box.left)
+    //   box.right = Math.max(box.right, face.detection.box.right)
+    //   box.top = Math.min(box.top, face.detection.box.top)
+    // }
+    if (parDetections[parNumberOfFaceSelect - 1]) {
+      box.bottom = Math.max(box.bottom, parDetections[parNumberOfFaceSelect - 1].detection._box.bottom)
+      box.left = Math.min(box.left, parDetections[parNumberOfFaceSelect - 1].detection._box.left)
+      box.right = Math.max(box.right, parDetections[parNumberOfFaceSelect - 1].detection._box.right)
+      box.top = Math.min(box.top, parDetections[parNumberOfFaceSelect - 1].detection._box.top)
+    }
+
+    // Draw the result (image) in the canvas "parCanvas"
+    const ctx = parCanvas.getContext("2d")
+
     parCanvas.width = box.width
+    parCanvas.height = box.height
+
+    // ctx.clearRect(0, 0, parCanvas.width, parCanvas.height)
+    // ctx.fillStyle = 'rgb(231, 230, 230)';
+    // ctx.fillRect(0, 0, parCanvas.width, parCanvas.height)
+
+    //  1.-  Load the data of all faces (array "detections") in the variable of array of objects: "infoTheFaceSelect"
+    const infoTheFaceSelect = loadInfoOfFace(parNumberOfFaceSelect, parDetections)
+    const relationOfCanvas = 1
+    const resizedCanvasFace = {
+      x0: parseInt(infoTheFaceSelect.dimensions._x * relationOfCanvas, 10),
+      y0: parseInt(infoTheFaceSelect.dimensions._y * relationOfCanvas, 10),
+      width: parseInt(infoTheFaceSelect.dimensions._width * relationOfCanvas, 10),
+      height: parseInt(infoTheFaceSelect.dimensions._height * relationOfCanvas, 10)
+    }
 
     ctx.drawImage(parImage, box.left, box.top, box.width, box.height, 0, 0, parCanvas.width, parCanvas.height)
   } else {
@@ -449,9 +610,51 @@ export function customBox(parCanvas, parDetections, parImage) {
   }
 }
 
+//  18.-  Function "inputSignal":  select of input signal in face recognition
+export function inputSignal(parSignal, parElemtCamera) {
+  let signalIs = ''
+  if (typeof (parSignal) === "string" && (parSignal === 'camera' || parSignal === 'video' || parSignal === 'image')) {
+    signalIs = parSignal
 
+    //    The stream signal must be deleted in the camera if it exists
+    if (parElemtCamera.srcObject) parElemtCamera.srcObject = null
+    parElemtCamera.pause()
+  } else {
+    console.error('Error:  The argument of the function "inputSignal" must be a string:  "camera", "video" or "image"!!')
+    signalIs = null
+  }
+  return signalIs
+}
 
+//  19.-  Print info (text in element HTML: "infoLoad" ) of image loaded and numbers of faces recognized
+export function printInfo(parElemtTarget) {
+  parElemtTarget.textContent = "Loaded face recognitions ...!"
+}
 
+/*
+//  1.-  Load the data of all faces (array "detections") in the variable of array of objects: "infoTheFaceSelect"
+const infoTheFaceSelect = loadInfoOfFace(parNumberOfFaceSelect, parDetections)
 
+const resizedCanvasFace = {
+  x0: parseInt(infoTheFaceSelect.dimensions._x * relationOfCanvas, 10),
+  y0: parseInt(infoTheFaceSelect.dimensions._y * relationOfCanvas, 10),
+  width: parseInt(infoTheFaceSelect.dimensions._width * relationOfCanvas, 10),
+  height: parseInt(infoTheFaceSelect.dimensions._height * relationOfCanvas, 10)
+}
+ctxCanvasFace.fillStyle = 'rgb(13, 13, 13)';
+ctxCanvasFace.fillRect(60, 10, resizedCanvasFace.width, resizedCanvasFace.height)
 
+if (putLandMark) {
+  ctxCanvasFace.fillStyle = 'rgb(250, 29, 29)'
+  ctxCanvasFace.lineWidth = 2
 
+  ctxCanvasFace.save()
+  ctxCanvasFace.beginPath()
+  ctxCanvasFace.translate(60, 10);
+  ctxCanvasFace.arc(15, 15, 5, 0, 2 * Math.PI)
+  ctxCanvasFace.fill()
+  ctxCanvasFace.closePath()
+  ctxCanvasFace.restore()
+}
+
+*/

@@ -1,9 +1,10 @@
+import { typeSignal } from "./main.js"
 import {
-  urlBase, elemCamera, playButton, progressBar, seek, duration, timeElapsed, volume, volumeButton, volumeIcons, volumeMute, volumeLow, 
+  urlBase, elemCamera, playButton, progressBar, seek, duration, timeElapsed, volume, volumeButton, volumeIcons, volumeMute, volumeLow,
   volumeHigh, videoContainer, videoControls, playbackIcons, seekTooltip, fullscreenButton, fullscreenIcons, rewind, forward, pipButton,
   infoSongCont, imageAlbumOfSong
 } from "./inicialitation.js"
-import {controlActiveInfoSong} from "./functions.js"
+import { controlActiveInfoSong } from "./functions.js"
 
 
 //  0.-  Hide native controls (only browser modern !!)
@@ -21,10 +22,13 @@ elemCamera.src = urlVideo
 //  2.-  Function "togglePlay" :  toggles the "playback state" of the element video. If the video playback is
 //                                paused or ended, the video is played, otherwise, the video is "paused"
 export function togglePlay() {
-  controlActiveInfoSong (infoSongCont, imageAlbumOfSong, elemCamera, 'video')
+  if (typeSignal === 'video') controlActiveInfoSong(infoSongCont, imageAlbumOfSong, elemCamera, 'video')
+  
   if (elemCamera.paused || elemCamera.ended) {
     elemCamera.play()
+    imageAlbumOfSong.style.animation = 'rotateRecord 30s linear infinite'
   } else {
+    imageAlbumOfSong.style.animation = 'none'
     elemCamera.pause()
   }
 }
@@ -335,7 +339,6 @@ elemCamera.addEventListener('mouseenter', showControls);
 elemCamera.addEventListener('mouseleave', hideControls);
 videoControls.addEventListener('mouseenter', showControls);
 videoControls.addEventListener('mouseleave', hideControls);
-
 
 
 

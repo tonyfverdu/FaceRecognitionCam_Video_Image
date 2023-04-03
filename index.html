@@ -180,7 +180,7 @@
 
         <div class="contOptionCamera">
           <fieldset>
-            <legend>Tecnology for face recognition</legend>
+            <legend>Face recognition</legend>
             <div class="contTopRecog">
               <div class="contCheckbox">
                 <label class="contLabelCB">
@@ -211,9 +211,8 @@
                     </svg>
                   </span>
                   <span class="checkmark"></span>
-                  <input type="checkbox" id="checkboxFace" value="on">
+                  <input type="checkbox" id="checkboxFace" value="off">
                 </label>
-
               </div>
 
               <div class="contRadioBtns">
@@ -263,9 +262,11 @@
                 </label>
 
               </div>
+              <div class="contLandMark">
+                <label for="selectGeneralLandmarks">Land marks</label>
+                <input type="checkbox" id="selectGeneralLandmarks" class="selectLandMarks" value="off">
+              </div>
             </div>
-
-
           </fieldset>
         </div>
 
@@ -306,7 +307,6 @@
                 </g>
               </svg>
             </button>
-            <button id="buttonSelectVideo" type="submit" class="buttonSelect" data-title="Select">Select</button>
           </div>
         </div>
 
@@ -325,6 +325,7 @@
         <p id="infoLoad"></p>
         <div id="containerImg" class="containerOfImg">
           <img id="imageCentral" class="imgCentral" src="./assets/imag/facerecognitionbeatles.png">
+          <canvas id="newCanvas" class="newCanvas" width="600px" height="545px"></canvas>
         </div>
       </div>
 
@@ -421,7 +422,7 @@
       </div>
 
       <div class="contInfoVideo">
-        <div id="infoSongCont" class="contInfoSong">
+        <div id="infoSongCont" class="contInfoSong active">
           <div class="contUpSong">
             <div class="contTitleAnimation">
               <div class="contAnimate">
@@ -488,12 +489,14 @@ C22.776,7,23,6.776,23,6.5z" />
           </div>
           <div class="contInfoOfFace">
             <div class="contOptionsRecog">
-              <label for="selectLandmarks">Land marks</label>
-              <input type="checkbox" id="selectLandmarks" class="selectLandMarks" value="off">
+              <div class="contLandMark">
+                <label for="selectLandmarks">Land marks</label>
+                <input type="checkbox" id="selectLandmarks" class="selectLandMarks" value="off">
+              </div>
+              <header class="headTitleFace">
+                <h4 class="titleOfFace">Face<span id="numberOfFace" class="numberOfFace"></span></h4>
+              </header>
             </div>
-            <header class="headTitleFace">
-              <h4 class="titleOfFace">Face<span id="numberOfFace" class="numberOfFace"></span></h4>
-            </header>
             <div class="contCanvasFace">
               <canvas id="canvasFace"></canvas>
             </div>
@@ -501,15 +504,22 @@ C22.776,7,23,6.776,23,6.5z" />
               <div class="contInfo">
                 <label class="labelInfo">Expressions</label>
                 <div class="contGruppe">
-                  <div class="contSpans"><span class="titleExpr">Neutral:</span><span id="expNeutral" class="expression"></span></div>
-                  <div class="contSpans"><span class="titleExpr">Happy:</span><span id="expHappy" class="expression"></span></div>
-                  <div class="contSpans"><span class="titleExpr">Sad:</span><span id="expSad" class="expression"></span></div>
-                  <div class="contSpans"><span class="titleExpr">Angry:</span><span id="expAngry" class="expression"></span></div>
+                  <div class="contSpans"><span class="titleExpr">Neutral:</span><span id="expNeutral"
+                      class="expression"></span></div>
+                  <div class="contSpans"><span class="titleExpr">Happy:</span><span id="expHappy"
+                      class="expression"></span></div>
+                  <div class="contSpans"><span class="titleExpr">Sad:</span><span id="expSad" class="expression"></span>
+                  </div>
+                  <div class="contSpans"><span class="titleExpr">Angry:</span><span id="expAngry"
+                      class="expression"></span></div>
                 </div>
                 <div class="contGruppe">
-                  <div class="contSpans"><span class="titleExpr">Susprised:</span><span id="expSusprised" class="expression"></span></div>
-                  <div class="contSpans"><span class="titleExpr">Fearful:</span><span id="expFearful" class="expression"></span></div>
-                  <div class="contSpans"><span class="titleExpr">Disgusted:</span><span id="expDisgusted" class="expression"></span></div>
+                  <div class="contSpans"><span class="titleExpr">Susprised:</span><span id="expSusprised"
+                      class="expression"></span></div>
+                  <div class="contSpans"><span class="titleExpr">Fearful:</span><span id="expFearful"
+                      class="expression"></span></div>
+                  <div class="contSpans"><span class="titleExpr">Disgusted:</span><span id="expDisgusted"
+                      class="expression"></span></div>
                 </div>
               </div>
               <div class="contAgeGender">
@@ -531,7 +541,6 @@ C22.776,7,23,6.776,23,6.5z" />
     </main>
 
     <div class="contDown">
-      <div class="childContDown"></div>
       <div class="childContDown"></div>
     </div>
 
@@ -589,6 +598,8 @@ C22.776,7,23,6.776,23,6.5z" />
 
   <script type="module" src="./Script/inicialitation.js"></script>
   <script type="module" src="./Script/functions.js"></script>
+  <script type="module" src="./Script/videoFR.js"></script>
+  <script type="module" src="./Script/imageFR.js"></script>
   <script type="module" src="./Script/playVideo.js"></script>
   <script type="module" src="./Script/faceImage.js"></script>
   <script type="module" src="./Script/main.js"></script>

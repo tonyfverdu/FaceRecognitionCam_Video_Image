@@ -15,10 +15,7 @@ arrayOptionImg.forEach(opt => {
   }
 })
 
-//  2.-  Print info (text in element HTML: "infoLoad" ) of image loaded and numbers of faces recognized
-export function printInfo() {
-  infoLoad.textContent = "Loaded face recognitions ...!"
-}
+
 
 //  3.-  Function "inputCamera":  Input signal "video of camera web online"
 export function inputCamera() {
